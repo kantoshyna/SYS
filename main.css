@@ -1,6 +1,7 @@
-@mainColor: #30a2f0;
-
-#login {}
+#login {
+    float: right;
+    color: white;
+}
 
 #logsite {
     z-index: 1;
@@ -10,8 +11,8 @@
 }
 
 .header {
-    background-color: @mainColor;
-
+    background-color: #30a2f0;
+    z-index: 0;
 }
 
 .logwind {
@@ -19,4 +20,9 @@
     background-color: white;
     height: 30%;
     width: 30%;
+    margin: 33%;
+}
+
+input {
+    float: right;
 }

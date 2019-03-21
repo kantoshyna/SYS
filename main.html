@@ -4,19 +4,6 @@
 <head lang="en">
     <meta charset="UTF-8" />
     <title>Головна</title>
-    <nav style=" padding: 5px 0;">
-        <div class="toggle">
-            <i class="fas fa-bars menu"></i>
-        </div>
-        <ul>
-            <li>Усі</li>
-            <li>М'ясні</li>
-            <li>З ананасами</li>
-            <li>З грибами</li>
-            <li>З морепродуктами</li>
-            <li>Вега</li>
-        </ul>
-    </nav>
     <!-- Bootsrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <!-- LESS основний файл -->
@@ -29,6 +16,39 @@
 
 <body>
 
+    <div class="header">
+        <!--     <div class="toggle">
+            <i class="fas fa-bars menu"></i>
+        </div>-->
+        <img src="logot.png" style="height: 132px;">
+
+        <span>description</span>
+        <span id="login">
+            <a href="">Увійти</a>
+        </span>
+    </div>
+
+
+    <div id="logsite">
+        <div class="logwind">
+            <div style=" padding: 10%; ">
+                <span>Логін</span>
+                <input type="text">
+            </div>
+
+            <div style=" padding: 10%; ">
+                <span>Пароль</span>
+                <input type="password">
+            </div>
+            <div>
+                <a href="" style="color: black">Ще не зареєстровані?</a>
+                <button type="submit" style="float: right">Увійти</button>
+            </div>
+
+        </div>
+    </div>
+
+
 
 
     <!-- jQuery JavaScript -->
@@ -39,6 +59,9 @@
 
     <!--Own JavaScript -->
     <script type="text/javascript" src="main.js"></script>
+
+
+
 </body>
 
 </html>
