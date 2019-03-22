@@ -34,7 +34,7 @@
 
 #profile-head {
     height: 215px;
-    margin: 1%;
+    margin: 6px 1%;
     width: 98%;
     background-color: #eee;
     box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.29),
@@ -81,7 +81,7 @@
 }
 
 .list-group {
-    margin-top: 0.6rem;
+    margin-top: 6px;
 }
 
 .list-group-item.active,
