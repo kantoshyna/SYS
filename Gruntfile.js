@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         //Назва завдання будь-яка
         scripts: {
             //На зміни в яких файлах реагувати
-            files: ['views/**/*.ejs', 'views/*.ejs', 'scripts/*js'],
+            files: ['views/**/*.ejs', 'views/*.ejs', 'scripts-frontend/*js'],
             //Які завдання виконувати під час зміни в файлах
             tasks: ['browserify:kate']
         }
