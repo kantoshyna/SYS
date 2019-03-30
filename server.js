@@ -1,2 +1,2 @@
-var main = require('./scripts/main');
-main.startServer(5050);
+var main = require('./scripts-backend/main');
+main.startServer(9090);

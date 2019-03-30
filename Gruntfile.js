@@ -19,7 +19,7 @@ module.exports = function (grunt) {
 
             //Збірка з назвою kate
             kate: {
-                src: 'scripts/main.js',
+                src: 'scripts-frontend/main.js',
                 dest: 'grunted-main.js'
             }
         }

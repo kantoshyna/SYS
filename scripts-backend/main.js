@@ -14,6 +14,8 @@ function configureEndpoints(app) {
     //Сторінка профіля
     app.get('/profile', pages.profilePage);
 
+    //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
+    app.use(express.static(path.join(__dirname, '../')));
 }
 
 function startServer(port) {
@@ -21,7 +23,7 @@ function startServer(port) {
     var app = express();
 
     //Налаштування директорії з шаблонами
-    app.set('views', path.join(__dirname, 'views'));
+    app.set('views', path.join(__dirname, '../views'));
     app.set('view engine', 'ejs');
 
     //Налаштування виводу в консоль списку запитів до сервера
