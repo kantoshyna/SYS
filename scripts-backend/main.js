@@ -13,6 +13,12 @@ function configureEndpoints(app) {
 
     //Сторінка профіля
     app.get('/profile', pages.profilePage);
+    app.get('/news', pages.newsPage);
+    app.get('/offers', pages.offersPage);
+    app.get('/contacts', pages.contactsPage);
+    app.get('/map', pages.mapPage);
+    app.get('/interplay', pages.interplayPage);
+    app.get('/other', pages.otherPage);
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
     app.use(express.static(path.join(__dirname, '../')));
