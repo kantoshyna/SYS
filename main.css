@@ -3,7 +3,6 @@
     background-color: white;
     margin: 8.8px;
     padding: 10px 46px;
-    border: 0.5px white solid;
     border-radius: 2px;
     color: #30a2f0;
 }
@@ -60,8 +59,8 @@
     width: 195px;
     background-color: white;
     border: 1px black solid;
-    margin-right: 1rem;
-    margin-top: 1rem;
+    margin-right: 0.8rem;
+    margin-top: 0.7rem;
 }
 
 #profile-body {
