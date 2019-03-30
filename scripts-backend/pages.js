@@ -22,6 +22,12 @@ exports.offersPage = function (req, res) {
     });
 };
 
+exports.contactsPage = function (req, res) {
+    res.render('contacts', {
+        pageTitle: 'Мої контакти'
+    });
+};
+
 exports.mapPage = function (req, res) {
     res.render('map', {
         pageTitle: 'Карта світу'
