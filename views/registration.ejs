@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Реєстрація</title>
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/main.css" />
+
+
+</head>
+
+<body style="font-family: Ubuntu;">
+    <div style="background-color: aliceblue; margin-bottom: 10px">
+        <a href="/"><img src="../images/logot.png" style="height: 132px;" /></a>
+        <div class="reg-text" style="display: inline-block; font-size: 32px; margin-left: 12%;">
+            Реєстрація
+        </div>
+    </div>
+    <form id="reg-form">
+        <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="Email" />
+            <small id="emailHelp" class="form-text text-muted">Ми нікому не повідомляємо Ваш email.</small>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input type="text" class="form-control" id="password-input" placeholder="Пароль" />
+            <div id="progressbar"></div><span id='per'>0</span>%
+        </div>
+        <label>Ваша стать:</label>
+        <select class="form-control" id="sex">
+            <option>Не вибрано</option>
+            <option>Чоловік</option>
+            <option>Жінка</option>
+        </select>
+        <label>Оберіть країну:</label>
+        <select class="form-control" id="country">
+            <option>Не вибрано</option>
+            <option>Англія</option>
+            <option>Білорусь</option>
+            <option>Голандія</option>
+            <option>Данія</option>
+            <option>Кенія</option>
+            <option>Латвія</option>
+            <option>Мальдіви</option>
+            <option>Норвегія</option>
+            <option>Парагвай</option>
+            <option>Сербія</option>
+            <option>Туреччина</option>
+            <option>Україна</option>
+            <option>Хорватія</option>
+            <option>Чехія</option>
+        </select>
+        <label>Група крові:</label>
+        <select class="form-control">
+            <option>Не вибрано</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <label>Резус-фактор:</label>
+        <select class="form-control">
+            <option>Не вибрано</option>
+            <option>+</option>
+            <option>-</option>
+        </select>
+    </form>
+
+
+
+    <!-- jQuery JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../complexify/jquery.complexify.js"></script>
+
+    <!--Bootsrap JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Own JavaScript -->
+    <script type="text/javascript" src="../scripts-frontend/checks.js"></script>
+
+</body>
+
+</html>

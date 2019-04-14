@@ -45,3 +45,9 @@ exports.otherPage = function (req, res) {
         pageTitle: 'Ще що-небудь'
     });
 };
+
+exports.logup = function (req, res) {
+    res.render('registration', {
+        pageTitle: 'Ще що-небудь'
+    });
+};

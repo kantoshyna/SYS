@@ -11,7 +11,6 @@ function configureEndpoints(app) {
     //Головна сторінка
     app.get('/', pages.mainPage);
 
-    //Сторінка профіля
     app.get('/profile', pages.profilePage);
     app.get('/news', pages.newsPage);
     app.get('/offers', pages.offersPage);
@@ -19,6 +18,7 @@ function configureEndpoints(app) {
     app.get('/map', pages.mapPage);
     app.get('/interplay', pages.interplayPage);
     app.get('/other', pages.otherPage);
+    app.get('/registration', pages.logup); //ВОТ ЕТО ПРІКОЛ...
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
     app.use(express.static(path.join(__dirname, '../')));
