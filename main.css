@@ -140,6 +140,13 @@
     border: red !important;
 }
 
+.incorrect:focus,
+.incorrect:active,
+.incorrect:not(:focus) {
+    border: 1px red solid !important;
+}
+
+
 .list-group {
     margin-top: 6px;
 }

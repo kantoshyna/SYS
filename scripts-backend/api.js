@@ -13,10 +13,18 @@ exports.createProfile = function (req, res) {
     console.log("Creating Profile", register_info);
 
     db.saveUser(register_info, function (error, data) {
+        if (error) {
+            res.send({
+                success: false
+            });
+        } else {
+            res.send({
+                success: true
+            });
+            console.log("save user");
 
+        }
     });
 
-    res.send({
-        success: true
-    });
+
 };

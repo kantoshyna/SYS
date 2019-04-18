@@ -1,13 +1,14 @@
 //import "complexify/jquery.complexify";
 
 function validateEmail(email) {
-    var pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     return pattern.test(String(email).toLowerCase());
 }
 
 $("#email-input").on('keyup', function () {
     if (!validateEmail($("#email-input").val())) {
         $("#email-input").addClass('incorrect');
+        $("#email-input").style('border: red !important');
     } else {
         $("#email-input").removeClass('incorrect');
     }
@@ -23,12 +24,31 @@ $("#password-1").complexify({}, function (valid, complexity) {
 
 $('#reg-form').on('submit', function (event) {
     event.preventDefault();
+    var $sex = false,
+        $resus = false;
+    if ($('#sex').val == "Чоловік") {
+        $sex = true;
+    }
+    if ($('#resus').val == "+") {
+        $sex = true;
+    }
     var newUser = {
-        email: $('#email-input').val()
+        email: $('#email-input').val(),
+        password: $('#password-1').val(),
+        nickname: $('#nick-input').val(),
+        sex: $sex,
+        country: $('#country').val(),
+        bloodgroup: $('#bloodgroup').val(),
+        resus: $resus,
+        content: []
     };
 
     backendPost('/api/registration', newUser, function (error, data) {
-
+        if (!data.success) {
+            console.log("Database error");
+        } else {
+            console.log("Database success");
+        }
     });
 });
 
