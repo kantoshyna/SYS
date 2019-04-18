@@ -18,7 +18,11 @@ function configureEndpoints(app) {
     app.get('/map', pages.mapPage);
     app.get('/interplay', pages.interplayPage);
     app.get('/other', pages.otherPage);
-    app.get('/registration', pages.logup); //ВОТ ЕТО ПРІКОЛ...
+    app.get('/registration', pages.logup);
+
+
+    app.get('/api/profiles', api.getProfiles);
+    app.post('/api/registration', api.createProfile);
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
     app.use(express.static(path.join(__dirname, '../')));

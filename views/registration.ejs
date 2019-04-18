@@ -29,8 +29,16 @@
         </div>
         <div class="form-group">
             <label>Пароль</label>
-            <input type="text" class="form-control" id="password-input" placeholder="Пароль" />
+            <input type="password" class="form-control" id="password-1" placeholder="Пароль" />
             <div id="progressbar"></div><span id='per'>0</span>%
+        </div>
+        <div class="form-group">
+            <label style="color: gray">Пароль (ще раз)</label>
+            <input type="password" class="form-control" id="password-2" placeholder="Пароль (ще раз)" disabled="true" />
+        </div>
+        <div class="form-group">
+            <label>Нікнейм</label>
+            <input type="text" class="form-control" id="email-input" placeholder="Нікнейм" />
         </div>
         <label>Ваша стать:</label>
         <select class="form-control" id="sex">
@@ -41,20 +49,203 @@
         <label>Оберіть країну:</label>
         <select class="form-control" id="country">
             <option>Не вибрано</option>
-            <option>Англія</option>
+            <option>Австралія</option>
+            <option>Австрія</option>
+            <option>Азербайджан</option>
+            <option>Албанія</option>
+            <option>Алжир</option>
+            <option>Ангола</option>
+            <option>Андорра</option>
+            <option>Антигуа і Барбуда</option>
+            <option>Аргентина</option>
+            <option>Афганістан</option>
+            <option>Багамські Острови</option>
+            <option>Бангладеш</option>
+            <option>Барбадос</option>
+            <option>Бахрейн</option>
+            <option>Беліз</option>
+            <option>Бельгія</option>
+            <option>Бенін</option>
             <option>Білорусь</option>
-            <option>Голандія</option>
+            <option>Болгарія</option>
+            <option>Болівія</option>
+            <option>Боснія і Герцеговина</option>
+            <option>Ботсвана</option>
+            <option>Бразилія</option>
+            <option>Бруней</option>
+            <option>Буркіна-Фасо</option>
+            <option>Бурунді</option>
+            <option>Бутан</option>
+            <option>Вануату</option>
+            <option>Ватикан</option>
+            <option>Велика Британія</option>
+            <option>Венесуела</option>
+            <option>В'єтнам</option>
+            <option>Вірменія</option>
+            <option>Габон</option>
+            <option>Гаїті</option>
+            <option>Гаяна</option>
+            <option>Гамбія</option>
+            <option>Гана</option>
+            <option>Гватемала</option>
+            <option>Гвінея</option>
+            <option>Гвінея-Бісау</option>
+            <option>Гондурас</option>
+            <option>Гренада</option>
+            <option>Греція</option>
+            <option>Грузія</option>
             <option>Данія</option>
+            <option>Джибуті</option>
+            <option>Домініка</option>
+            <option>Домініканська Республіка</option>
+            <option>Еквадор</option>
+            <option>Екваторіальна Гвінея</option>
+            <option>Еритрея</option>
+            <option>Естонія</option>
+            <option>Ефіопія</option>
+            <option>Єгипет</option>
+            <option>Ємен</option>
+            <option>Замбія</option>
+            <option>Західна Сахара</option>
+            <option>Зімбабве</option>
+            <option>Ізраїль</option>
+            <option>Індія</option>
+            <option>Індонезія</option>
+            <option>Ірак</option>
+            <option>Ірак</option>
+            <option>Ірландія</option>
+            <option>Ісландія</option>
+            <option>Іспанія</option>
+            <option>Італія</option>
+            <option>Йорданія</option>
+            <option>Кабо-Верде</option>
+            <option>Казахстан</option>
+            <option>Камбоджа</option>
+            <option>Камерун</option>
+            <option>Канада</option>
+            <option>Катар</option>
             <option>Кенія</option>
+            <option>Киргизстан</option>
+            <option>Китайська Народна Республіка</option>
+            <option>Кіпр</option>
+            <option>Кірибаті</option>
+            <option>Колумбія</option>
+            <option>Коморські Острови</option>
+            <option>Республіка Конго</option>
+            <option>Демократична Республіка Конго</option>
+            <option>Республіка Корея</option>
+            <option>Корейська Народно-Демократична Республіка</option>
+            <option>Косово</option>
+            <option>Коста-Рика</option>
+            <option>Кот-д'Івуар</option>
+            <option>Куба</option>
+            <option>Куба</option>
+            <option>Лаос</option>
             <option>Латвія</option>
+            <option>Лесото</option>
+            <option>Литва</option>
+            <option>Ліберія</option>
+            <option>Ліван</option>
+            <option>Лівія</option>
+            <option>Ліхтенштейн</option>
+            <option>Люксембург</option>
+            <option>Маврикій</option>
+            <option>Мавританія</option>
+            <option>Мадагаскар</option>
+            <option>Македонія</option>
+            <option>Малаві</option>
+            <option>Малайзія</option>
+            <option>Малі</option>
             <option>Мальдіви</option>
+            <option>Мальта</option>
+            <option>Марокко</option>
+            <option>Маршаллові Острови</option>
+            <option>Мексика</option>
+            <option>Мозамбік</option>
+            <option>Молдова</option>
+            <option>Монако</option>
+            <option>Монголія</option>
+            <option>М'янма</option>
+            <option>Намібія</option>
+            <option>Науру</option>
+            <option>Непал</option>
+            <option>Нігер</option>
+            <option>Нігерія</option>
+            <option>Нідерланди</option>
+            <option>Нікарагуа</option>
+            <option>Німеччина</option>
+            <option>Нова Зеландія</option>
             <option>Норвегія</option>
+            <option>Об'єднані Арабські Емірати</option>
+            <option>Оман</option>
+            <option>Пакистан</option>
+            <option>Палау</option>
+            <option>Палестина</option>
+            <option>Панама</option>
+            <option>Папуа-Нова Гвінея</option>
+            <option>Південно-Африканська Республіка</option>
             <option>Парагвай</option>
+            <option>Перу</option>
+            <option>Перу</option>
+            <option>Польща</option>
+            <option>Португалія</option>
+            <option>Росія</option>
+            <option>Руанда</option>
+            <option>Румунія</option>
+            <option>Сальвадор</option>
+            <option>Самоа</option>
+            <option>Сан-Марино</option>
+            <option>Сан-Томе і Принсіпі</option>
+            <option>Саудівська Аравія</option>
+            <option>Е-Сватіні</option>
+            <option>Сейшельські Острови</option>
+            <option>Сенегал</option>
+            <option>Сент-Вінсент і Гренадини</option>
+            <option>Сент-Критофер і Невіс</option>
+            <option>Сент-Люсія</option>
             <option>Сербія</option>
+            <option>Сингапур</option>
+            <option>Сирія</option>
+            <option>Словаччина</option>
+            <option>Словенія</option>
+            <option>Соломонові Острови</option>
+            <option>Сомалі</option>
+            <option>Судан</option>
+            <option>Суринам</option>
+            <option>Східний Тимор</option>
+            <option>США</option>
+            <option>Сьєрра-Леоне</option>
+            <option>Таджикистан</option>
+            <option>Таїланд</option>
+            <option>Тайвань</option>
+            <option>Танзанія</option>
+            <option>Того</option>
+            <option>Тонга</option>
+            <option>Тринідад і Тобаго</option>
+            <option>Тувалу</option>
+            <option>Туніс</option>
             <option>Туреччина</option>
+            <option>Туркменістан</option>
+            <option>Уганда</option>
+            <option>Угорщина</option>
+            <option>Узбекистан</option>
             <option>Україна</option>
+            <option>Уругвай</option>
+            <option>Фіджі</option>
+            <option>Філіппіни</option>
+            <option>Фінляндія</option>
+            <option>Франція</option>
             <option>Хорватія</option>
+            <option>Центральноафриканська Республіка</option>
+            <option>Чад</option>
             <option>Чехія</option>
+            <option>Чилі</option>
+            <option>Чорногорія</option>
+            <option>Швейцарія</option>
+            <option>Швеція</option>
+            <option>Шрі-Ланка</option>
+            <option>Ямайка</option>
+            <option>Японія</option>
         </select>
         <label>Група крові:</label>
         <select class="form-control">
@@ -70,6 +261,8 @@
             <option>+</option>
             <option>-</option>
         </select>
+
+        <button class="submit" type="submit">Зареєструватись</button>
     </form>
 
 
@@ -87,6 +280,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <script src="../complexify/jquery.complexify.min.js"></script>
     <!-- Own JavaScript -->
     <script type="text/javascript" src="../scripts-frontend/checks.js"></script>
 

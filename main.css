@@ -22,9 +22,12 @@
     z-index: 2;
     background-color: white;
     height: 37em;
-    width: 294px;
+    width: 588px;
     margin: auto;
 }
+
+
+
 
 #login {
     float: right;
@@ -129,6 +132,10 @@
     height: 132px;
 }
 
+.img {
+    width: 50%;
+}
+
 .incorrect {
     border: red !important;
 }
@@ -168,5 +175,22 @@ input {
     .reg-text {
         visibility: hidden;
         font-size: 0 !important;
+    }
+}
+
+@media (max-width:606px) {
+    #editwind {
+        display: grid;
+        width: 294px;
+        height: 89.5rem;
+    }
+
+    #editsite {
+        position: absolute;
+        height: 200%;
+    }
+
+    .img {
+        width: 100%;
     }
 }
