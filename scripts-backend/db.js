@@ -17,7 +17,14 @@ var UserSchema = new mongoose.Schema({
     country: String,
     bloodgroup: Number,
     resus: Boolean,
-    content: [String]
+    brain: Number,
+    leftkidney: Number,
+    rightkidney: Number,
+    leftlung: Number,
+    rightlung: Number,
+    stomach: Number,
+    liver: Number,
+
 });
 
 //При створенні моделі задається назва колекції (таблиці)

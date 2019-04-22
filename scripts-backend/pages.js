@@ -34,8 +34,8 @@ exports.mapPage = function (req, res) {
     });
 };
 
-exports.interplayPage = function (req, res) {
-    res.render('interplay', {
+exports.usersPage = function (req, res) {
+    res.render('users', {
         pageTitle: 'Взаємодії'
     });
 };

@@ -16,13 +16,14 @@ function configureEndpoints(app) {
     app.get('/offers', pages.offersPage);
     app.get('/contacts', pages.contactsPage);
     app.get('/map', pages.mapPage);
-    app.get('/interplay', pages.interplayPage);
+    app.get('/users', pages.usersPage);
     app.get('/other', pages.otherPage);
     app.get('/registration', pages.logup);
 
 
     app.get('/api/profiles', api.getProfiles);
     app.post('/api/registration', api.createProfile);
+    app.post('/api/login', api.loadProfile);
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
     app.use(express.static(path.join(__dirname, '../')));

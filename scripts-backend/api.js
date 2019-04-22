@@ -25,6 +25,8 @@ exports.createProfile = function (req, res) {
 
         }
     });
+};
 
+exports.loadProfile = function (req, res) {
 
 };

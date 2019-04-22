@@ -5,14 +5,29 @@ function validateEmail(email) {
     return pattern.test(String(email).toLowerCase());
 }
 
+$("input").on('keyup', function () {
+    if ($(this).val() != "") {
+        $(this).removeClass('incorrect');
+    } else {
+        $(this).addClass('incorrect');
+    }
+});
+
 $("#email-input").on('keyup', function () {
     if (!validateEmail($("#email-input").val())) {
         $("#email-input").addClass('incorrect');
-        $("#email-input").style('border: red !important');
     } else {
         $("#email-input").removeClass('incorrect');
     }
 });
+
+function enableP2() {
+    if ($("#password-1").val() != "") {
+        $("#password-2").removeAttr('disabled');
+    } else {
+        $("#password-2").attr('disabled', 'true');
+    }
+}
 
 $("#password-1").complexify({}, function (valid, complexity) {
     $('#per').text(Math.round(complexity));
@@ -21,6 +36,7 @@ $("#password-1").complexify({}, function (valid, complexity) {
     });
     console.log(" Complexity : " + complexity + " , valid : " + valid);
 });
+
 
 $('#reg-form').on('submit', function (event) {
     event.preventDefault();
@@ -32,24 +48,39 @@ $('#reg-form').on('submit', function (event) {
     if ($('#resus').val == "+") {
         $sex = true;
     }
-    var newUser = {
-        email: $('#email-input').val(),
-        password: $('#password-1').val(),
-        nickname: $('#nick-input').val(),
-        sex: $sex,
-        country: $('#country').val(),
-        bloodgroup: $('#bloodgroup').val(),
-        resus: $resus,
-        content: []
-    };
+    if (!!$('.incorrect')) {
+        alert("Ви зaповнили не всі поля!");
+    } else if ($("#password-1").val() != $("#password-2").val()) {
+        alert("Неправильний пароль!");
+    } else {
+        var newUser = {
+            email: $('#email-input').val(),
+            password: $('#password-1').val(),
+            nickname: $('#nick-input').val(),
+            sex: $sex,
+            country: $('#country').val(),
+            bloodgroup: $('#bloodgroup').val(),
+            resus: $resus,
+            brain: 0,
+            leftkidney: 0,
+            rightkidney: 0,
+            leftlung: 0,
+            rightlung: 0,
+            stomach: 0,
+            liver: 0
+        };
 
-    backendPost('/api/registration', newUser, function (error, data) {
-        if (!data.success) {
-            console.log("Database error");
-        } else {
-            console.log("Database success");
-        }
-    });
+        backendPost('/api/registration', newUser, function (error, data) {
+            if (!data.success) {
+                console.log("Database error");
+            } else {
+                console.log("Database success");
+            }
+        });
+
+        $.get("/");
+    }
+
 });
 
 function backendPost(url, data, callback) {

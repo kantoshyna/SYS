@@ -10,7 +10,7 @@ $("#login").click(function () {
 
         '</div>' +
         '<div style=" padding: 5% ">' +
-        '  <span>Логін</span>' +
+        '  <span>Email</span>' +
         '<input type="text">  </div>' +
 
         '   <div style=" padding: 5% 5% 7%"> <span>Пароль</span>' +
@@ -18,7 +18,7 @@ $("#login").click(function () {
 
         '<div style="padding: 5%; border-top: 1px grey dotted; display: flex">' +
         '<a href="/registration" style="color: black; margin-right: .6em;">Ще не зареєстровані?</a>' +
-        '<button type="submit" class="submit">Увійти</button>' +
+        '<a href="/api/login"><button class="submit">Увійти</button></a>' +
         '</div >';
 
     logsite.append(logwind);
