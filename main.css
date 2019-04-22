@@ -275,3 +275,9 @@ input {
     }
 
 }
+
+@media (max-width:860px) {
+    #menu {
+        width: 210px;
+    }
+}
