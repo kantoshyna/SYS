@@ -15,4 +15,14 @@ $(function () {
         localStorage.setItem("id", $(this).attr("id"));
         console.log(localStorage.getItem("id"));
     });
+
+    $('#menu-open').click(function () {
+        if ($('#menu').css('display') == 'block') {
+            $('#menu').css('display', 'none');
+        } else {
+            console.log($('#menu').css('display'));
+            $('#menu').css('display', 'inline-block');
+        }
+        //    $('#menu-open').css('display', 'none');
+    });
 });

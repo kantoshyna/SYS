@@ -5,7 +5,7 @@ function validateEmail(email) {
     return pattern.test(String(email).toLowerCase());
 }
 
-$("input").on('keyup', function () {
+$("input").on('input', function () {
     if ($(this).val() != "") {
         $(this).removeClass('incorrect');
     } else {
@@ -13,7 +13,7 @@ $("input").on('keyup', function () {
     }
 });
 
-$("#email-input").on('keyup', function () {
+$("#email-input").on('input', function () {
     if (!validateEmail($("#email-input").val())) {
         $("#email-input").addClass('incorrect');
     } else {
@@ -48,7 +48,7 @@ $('#reg-form').on('submit', function (event) {
     if ($('#resus').val == "+") {
         $sex = true;
     }
-    if (!!$('.incorrect')) {
+    if (!!$('.incorrect') || $('input').val() == "") {
         alert("Ви зaповнили не всі поля!");
     } else if ($("#password-1").val() != $("#password-2").val()) {
         alert("Неправильний пароль!");

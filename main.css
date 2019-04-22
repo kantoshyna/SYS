@@ -1,3 +1,8 @@
+#content {
+    display: inline-block;
+    width: 100%;
+}
+
 #edit {
     background-color: #30a2f0;
     color: white;
@@ -74,7 +79,22 @@
     margin: auto;
 }
 
-.newfoto {
+#menu {
+    width: 265px;
+    display: inline-block;
+}
+
+#menu-open {
+    border: none;
+    height: 5rem;
+    width: 5rem;
+    margin: 6px;
+    background-color: #30a2f0;
+    color: white;
+    display: none;
+}
+
+#newfoto {
     max-width: 55px;
 }
 
@@ -210,6 +230,11 @@ input {
         visibility: hidden;
         font-size: 0 !important;
     }
+
+    #reg-form {
+        width: 90%;
+        margin: 0 5%;
+    }
 }
 
 @media (max-width:606px) {
@@ -230,7 +255,23 @@ input {
         margin: 0 3rem;
     }
 
+    #reg-form {
+        width: 80%;
+        margin: 0 10%;
+    }
+
     .img {
         width: 100%;
     }
+}
+
+@media (max-width:745px) {
+    #menu-open {
+        display: inline-block;
+    }
+
+    #menu {
+        display: none;
+    }
+
 }
