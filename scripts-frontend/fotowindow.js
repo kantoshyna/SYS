@@ -16,7 +16,8 @@ $('#profile-foto').click(function () {
 
 });
 
+/*
 fotowindow.click(function () {
     fotowindow.id = "pro-logsite";
     fotowindow.empty();
-});
+});*/

@@ -1,0 +1,13 @@
+<form action="handler.php" style="width: 200px;">
+    <p style="background-color: #30a2f0; color:  white; text-align: center; padding-top: 5px; padding-bottom: 5px">
+        <b>Зміна стану органа ""</b></p>
+    <p><input name="condition" type="radio" value="notForSale" id="notForSale"> Не продається</p>
+    <p><input name="condition" type="radio" value="isForSale" id="newBlock"> Продається</p>
+    <div id="twoFields" style="display: none">
+        <p>Введіть нову ціну</p>
+        <p style="padding-bottom: 30px"><input></p>
+    </div>
+    <p><input name="condition" type="radio" value="sold" id="attention"> Продано</p>
+    <p id="attTexts" style="color: red; display: none"> Ця дія невідворотня!</p>
+    <p><input type="submit" value="Зберегти"></p>
+</form>

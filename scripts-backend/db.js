@@ -24,7 +24,7 @@ var UserSchema = new mongoose.Schema({
     rightlung: Number,
     stomach: Number,
     liver: Number,
-
+    icon: Image
 });
 
 //При створенні моделі задається назва колекції (таблиці)
@@ -40,4 +40,17 @@ exports.getUsers = function (callback) {
 exports.saveUser = function (newUser, cb) {
     var user1 = new User(newUser);
     user1.save(cb);
+};
+
+exports.hasUser = function (email, password) {
+    User.find({
+        'email': email,
+        'password': password
+    }, function (error, arr) {
+        if (arr.length > 0) {
+            return true; // such user exists
+        } else {
+            return false;
+        }
+    });
 };
