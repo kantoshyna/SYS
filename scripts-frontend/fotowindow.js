@@ -5,6 +5,7 @@ $('#profile-foto').click(function () {
     fotosite.id = "logsite";
     var fotowind = document.createElement('div');
     fotowind.id = "fotowind";
+    fotowind.className = "logwind";
     fotowind.innerHTML = '<span><b style = "color: black; font-size:17px; display:block"> Фото профіля </b> ' +
         '<button id="choose-file">Вибрати файл</button>' +
         '<span id="newfoto">newfoto</span></span>  ' +
@@ -15,9 +16,11 @@ $('#profile-foto').click(function () {
     fotowindow.append(fotosite);
 
 });
-
 /*
-fotowindow.click(function () {
-    fotowindow.id = "pro-logsite";
-    fotowindow.empty();
+$(document).mouseup(function (e) {
+    var fotowind = $('.logwind');
+    if (fotowind.has(e.target).length === 0) {
+        fotowindow.empty();
+        fotowindow.id = "pro-logsite";
+    }
 });*/

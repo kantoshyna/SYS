@@ -160,6 +160,15 @@
   margin: 5px 0;
 }
 
+#toolwindow {
+  z-index: 4;
+  position: absolute;
+  display: inline-block;
+  background-color: white;
+  height: auto;
+  width: 200px;
+}
+
 #wrong-password {
   color: red;
   margin: 5px 7px;

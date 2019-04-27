@@ -1,5 +1,5 @@
-var Templates = require("../Templates");
-var api = require("../API");
+var Templates = require("./Templates");
+var api = require("./api");
 
 var $User_list = $('#userlist');
 
@@ -22,3 +22,11 @@ function initialiseUsers(data) {
         showUserList(data);
     });
 }
+
+exports.initialiseUsers = initialiseUsers;
+
+$(document).ready(function () {
+    api.getUserList(function (error, data) {
+        initialiseUsers(data);
+    });
+});

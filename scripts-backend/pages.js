@@ -36,7 +36,7 @@ exports.mapPage = function (req, res) {
 
 exports.usersPage = function (req, res) {
     res.render('users', {
-        pageTitle: 'Взаємодії'
+        pageTitle: 'Користувачі'
     });
 };
 

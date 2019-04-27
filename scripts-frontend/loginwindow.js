@@ -1,11 +1,12 @@
 var loginwindow = $("#pro-logsite");
-var db = require('../scripts-backend/db'); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//var db = require('../scripts-backend/db'); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $("#login").click(function () {
     var logsite = document.createElement('div');
     logsite.id = "logsite";
     var logwind = document.createElement('form');
     logwind.id = "logwind";
+    logwind.className = "logwind";
     logwind.innerHTML = '<div style = "padding: 5% 5% 2%; border-bottom: 1px grey dotted" >' +
         '<p style = "color: black; font-size:17px"> <b> Авторизація </b> </p>' +
 
@@ -37,14 +38,8 @@ $("#login").click(function () {
         }
     });
 });
-
-/*loginwindow.click(function () {
-    loginwindow.id = "pro-logsite";
-    loginwindow.empty();
-});
-*/
 $(document).mouseup(function (e) {
-    var logwind = $('#logwind');
+    var logwind = $('.logwind');
     if (logwind.has(e.target).length === 0) {
         loginwindow.empty();
         loginwindow.id = "pro-logsite";

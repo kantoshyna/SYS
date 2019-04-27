@@ -29,7 +29,7 @@ function backendPost(url, data, callback) {
 }
 
 exports.getUserList = function (callback) {
-    backendGet("/api/get-pizza-list/", callback);
+    backendGet("/api/profiles/", callback);
 };
 
 /*
