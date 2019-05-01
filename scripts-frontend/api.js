@@ -32,6 +32,10 @@ exports.getUserList = function (callback) {
     backendGet("/api/profiles/", callback);
 };
 
+exports.saveChangedOrgan = function (organ, price) {
+
+}
+
 /*
 exports.createOrder = function (order_info, callback) {
     backendPost("/api/create-order/", order_info, callback);

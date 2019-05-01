@@ -26,8 +26,8 @@ $("#login").click(function () {
     logsite.append(logwind);
     loginwindow.append(logsite);
 
-    $("#login-submit").click(function () {
-        debugger;
+    $("#login-submit").click(function (e) {
+        e.preventDefault();
         if (db.hasUser($('#input1').val(), $('#input2').val())) {
             alert("успішний вхід");
             console.log("success");
@@ -37,11 +37,11 @@ $("#login").click(function () {
             console.log("not success");
         }
     });
-});
-$(document).mouseup(function (e) {
-    var logwind = $('.logwind');
-    if (logwind.has(e.target).length === 0) {
-        loginwindow.empty();
-        loginwindow.id = "pro-logsite";
-    }
+    $(document).mouseup(function (e) {
+        var logwind = $('.logwind');
+        if (logwind.has(e.target).length === 0) {
+            loginwindow.empty();
+            loginwindow.id = "pro-logsite";
+        }
+    });
 });

@@ -2,17 +2,13 @@ exports.mainPage = function (req, res) {
     res.render('main', {
         pageTitle: 'Головна'
     });
+    sessionStorage.setItem("id", "1");
+    $("#menu #1").css("background-color", "#30a2f0");
 };
 
 exports.profilePage = function (req, res) {
     res.render('profile', {
         pageTitle: 'Профіль'
-    });
-};
-
-exports.newsPage = function (req, res) {
-    res.render('news', {
-        pageTitle: 'Новини'
     });
 };
 
@@ -22,32 +18,14 @@ exports.offersPage = function (req, res) {
     });
 };
 
-exports.contactsPage = function (req, res) {
-    res.render('contacts', {
-        pageTitle: 'Мої контакти'
-    });
-};
-
-exports.mapPage = function (req, res) {
-    res.render('map', {
-        pageTitle: 'Карта світу'
-    });
-};
-
 exports.usersPage = function (req, res) {
     res.render('users', {
         pageTitle: 'Користувачі'
     });
 };
 
-exports.otherPage = function (req, res) {
-    res.render('other', {
-        pageTitle: 'Ще що-небудь'
-    });
-};
-
 exports.logup = function (req, res) {
     res.render('registration', {
-        pageTitle: 'Ще що-небудь'
+        pageTitle: 'Реєстрація'
     });
 };

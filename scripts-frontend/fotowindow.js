@@ -14,13 +14,11 @@ $('#profile-foto').click(function () {
 
     fotosite.append(fotowind);
     fotowindow.append(fotosite);
-
+    $(document).mouseup(function (e) {
+        var logwind = $('.logwind');
+        if (logwind.has(e.target).length === 0) {
+            loginwindow.empty();
+            loginwindow.id = "pro-logsite";
+        }
+    });
 });
-/*
-$(document).mouseup(function (e) {
-    var fotowind = $('.logwind');
-    if (fotowind.has(e.target).length === 0) {
-        fotowindow.empty();
-        fotowindow.id = "pro-logsite";
-    }
-});*/

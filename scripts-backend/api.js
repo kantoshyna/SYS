@@ -22,7 +22,6 @@ exports.createProfile = function (req, res) {
                 success: true
             });
             console.log("save user");
-
         }
     });
 };

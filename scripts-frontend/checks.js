@@ -1,4 +1,5 @@
 //import "complexify/jquery.complexify";
+//var api = require('./api');
 
 function validateEmail(email) {
     var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -24,8 +25,10 @@ $("#email-input").on('input', function () {
 function enableP2() {
     if ($("#password-1").val() != "") {
         $("#password-2").removeAttr('disabled');
+        $("#repeat-password").css('color', '#333');
     } else {
         $("#password-2").attr('disabled', 'true');
+        $("#repeat-password").css('color', 'gray');
     }
 }
 
@@ -48,7 +51,7 @@ $('#reg-form').on('submit', function (event) {
     if ($('#resus').val == "+") {
         $sex = true;
     }
-    if (!!$('.incorrect') || $('input').val() == "") {
+    if ($('input').val() == "") {
         alert("Ви зaповнили не всі поля!");
     } else if ($("#password-1").val() != $("#password-2").val()) {
         alert("Неправильний пароль!");
@@ -71,14 +74,16 @@ $('#reg-form').on('submit', function (event) {
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
-            if (!data.success) {
+            if (error) {
                 console.log("Database error");
             } else {
                 console.log("Database success");
             }
         });
 
-        $.get("/");
+        $.ajax({
+            url: "http://localhost:9090"
+        });
     }
 
 });

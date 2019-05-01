@@ -29,7 +29,6 @@ var UserSchema = new mongoose.Schema({
 //При створенні моделі задається назва колекції (таблиці)
 var User = mongoose.model('user', UserSchema);
 
-
 exports.getUsers = function (callback) {
     User.find({}, function (error, arr) {
         callback(error, arr);
@@ -37,12 +36,19 @@ exports.getUsers = function (callback) {
 };
 
 exports.saveUser = function (newUser, cb) {
+    debugger;
+    var newEmail = newUser.email,
+        newPassword = newUser.password;
+    if (hasUser(newEmail, newPassword)) {
+        throw "such user exists";
+    }
     var user1 = new User(newUser);
     user1.save(cb);
+
 };
 
-exports.updateUser = function (user) {
-    // update in db
+exports.updateUser = function (newUser) {
+    // session
 };
 
 exports.hasUser = function (email, password) {
@@ -55,5 +61,16 @@ exports.hasUser = function (email, password) {
         } else {
             return false;
         }
+    });
+};
+
+// повертає масив відсортованих у порядку зростання ціни на орган користувачів
+exports.topSales = function (organ) {
+    return User.find({
+        [organ]: {
+            $gt: 0
+        }
+    }).sort({
+        [organ]: 1
     });
 };

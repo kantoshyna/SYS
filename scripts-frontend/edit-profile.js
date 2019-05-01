@@ -1,4 +1,5 @@
-var db = require("../scripts-backend/db");
+//var db = require("../scripts-backend/db");
+//var api = require('./api');
 var back = $("#pro-logsite");
 
 $("#edit").click(function () {
@@ -21,7 +22,19 @@ $("#edit").click(function () {
     editsite.append(editwind);
     back.append(editsite);
 
+    // ============= adding organs ================
+    var image = document.createElement('img');
+    image.src = "../images/stomach1.png";
+    image.style.position = 'absolute';
+    image.style.top = '270px';
+    image.style.left = '291px';
+    image.style.zIndex = '4';
+    image.style.width = '50px';
+    $('#body').append(image);
+    // ============================================
+
     $('#body').click(function (e) {
+        e.preventDefault();
         if ($('#toolwindow')) {
             $('#toolwindow').remove();
         }
@@ -37,18 +50,40 @@ $("#edit").click(function () {
             '</div>' +
             '<p> <input name = "condition" type = "radio" value = "sold" id = "attention"> Продано </p>' +
             '<p id = "attTexts" style = "color: red; display: none" > Ця дія невідворотня! </p>' +
-            '<p> <input type = "submit" value = "Зберегти"> </p>';
+            '<p> <input type = "submit" value = "Зберегти" style = "margin-bottom: 0.8em"> </p>';
         $window.style.left = x + 'px';
         $window.style.top = y + 'px';
         $window.id = "toolwindow";
         $('#editwind').append($window);
-        $window.submit(function (e) {
-            e.preventDefault();
-            db.updateUser(ourUser);
-        });
+        /* $window.submit(function (e) {
+             e.preventDefault();
+             db.updateUser(ourUser);
+         });*/
+    });
+    $(document).mouseup(function (e) {
+        var logwind = $('.logwind');
+        if (logwind.has(e.target).length === 0) {
+            back.empty();
+            back.id = "pro-logsite";
+        }
     });
 });
 
+$("#newBlock").on("click", function () {
+    $("#twoFields").css("display", "initial");
+    $("#attTexts").css("display", "none");
+});
+
+$("#notForSale").on("click", function () {
+    $("#twoFields").css("display", "none");
+    $("#attTexts").css("display", "none");
+});
+
+$("#attention").on("click", function () {
+    $("#twoFields").css("display", "none");
+    $("#attTexts").css("display", "initial");
+});
+/*
 var ourUser;
 if (ourUser.stomach > 0) {
     var image = document.createElement('img');
@@ -161,4 +196,4 @@ if (ourUser.rightlung == 0) {
     image.style.top = ' 247px';
     image.style.left = '178px';
     $('#body').append(image);
-}
+}*/
