@@ -2,8 +2,6 @@ exports.mainPage = function (req, res) {
     res.render('main', {
         pageTitle: 'Головна'
     });
-    sessionStorage.setItem("id", "1");
-    $("#menu #1").css("background-color", "#30a2f0");
 };
 
 exports.profilePage = function (req, res) {

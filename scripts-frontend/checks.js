@@ -1,5 +1,6 @@
 //import "complexify/jquery.complexify";
 //var api = require('./api');
+require("../complexify/jquery.complexify");
 
 function validateEmail(email) {
     var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;

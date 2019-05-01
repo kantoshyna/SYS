@@ -5,6 +5,8 @@ $(function () {
         $("#menu #" + sessionStorage.getItem("id")).css("color", "#ffffff");
     } else {
         sessionStorage.setItem("id", "1");
+        $("#menu #" + sessionStorage.getItem("id")).css("background-color", "#30a2f0");
+        $("#menu #" + sessionStorage.getItem("id")).css("color", "#ffffff");
     }
 
 

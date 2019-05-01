@@ -12,12 +12,8 @@ function configureEndpoints(app) {
     app.get('/', pages.mainPage);
 
     app.get('/profile', pages.profilePage);
-    app.get('/news', pages.newsPage);
     app.get('/offers', pages.offersPage);
-    app.get('/contacts', pages.contactsPage);
-    app.get('/map', pages.mapPage);
     app.get('/users', pages.usersPage);
-    app.get('/other', pages.otherPage);
     app.get('/registration', pages.logup);
 
 

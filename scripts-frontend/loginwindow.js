@@ -1,5 +1,5 @@
 var loginwindow = $("#pro-logsite");
-//var db = require('../scripts-backend/db'); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var api = require('./api'); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $("#login").click(function () {
     var logsite = document.createElement('div');
@@ -28,7 +28,7 @@ $("#login").click(function () {
 
     $("#login-submit").click(function (e) {
         e.preventDefault();
-        if (db.hasUser($('#input1').val(), $('#input2').val())) {
+        if (api.loginUser($('#input1').val(), $('#input2').val())) {
             alert("успішний вхід");
             console.log("success");
             // open profile page for the user
