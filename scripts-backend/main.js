@@ -19,7 +19,7 @@ function configureEndpoints(app) {
 
     app.get('/api/profiles', api.getProfiles);
     app.post('/api/registration', api.createProfile);
-    //  app.post('/api/login', api.loadProfile);
+    app.post('/api/login', api.loadProfile);
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
     app.use(express.static(path.join(__dirname, '../')));

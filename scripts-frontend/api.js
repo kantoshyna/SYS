@@ -32,8 +32,10 @@ exports.getUserList = function (callback) {
     backendGet("/api/profiles/", callback);
 };
 
-exports.loginUser = function (organ, price) {
-    return false; //!!!!!!!!!!!!!!!!!!!!!!!!!!s
+exports.loginUser = function () {
+    var obj = $('#logwind').serializeJSON();
+    backendPost("/api/login", obj, callback);
+    return false;
 };
 
 exports.saveChangedOrgan = function (organ, price) {
