@@ -18,6 +18,7 @@ function configureEndpoints(app) {
 
 
     app.get('/api/profiles', api.getProfiles);
+    app.get('/api/loggedUser', api.getLoggedUser);
     app.post('/api/registration', api.createProfile);
     app.post('/api/login', api.loadProfile);
 

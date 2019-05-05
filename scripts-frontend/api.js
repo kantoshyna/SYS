@@ -33,28 +33,15 @@ exports.getUserList = function (callback) {
 };
 
 exports.loginUser = function (email, password, callback) {
-    $.ajax({
-        url: API_URL + '/api/login',
-        type: 'POST',
-        contentType: 'application/json',
-        data: {
-            email: [email],
-            password: [password]
-        },
-        success: function (data) {
-            callback(null, data);
-        },
-        error: function () {
-            callback(new Error("Ajax Failed"));
-        }
+    backendPost('/api/login', {
+        email: [email],
+        password: [password]
+    }, callback);
+    backendGet('/api/loggedUser', function (error, data) {
+        localStorage.setItem('user', data);
     });
 };
 
 exports.saveChangedOrgan = function (organ, price) {
-
+    //
 };
-
-/*
-exports.createOrder = function (order_info, callback) {
-    backendPost("/api/create-order/", order_info, callback);
-};*/

@@ -1,0 +1,32 @@
+<%
+var sex, country, resus;
+if (user.sex) { sex = "Чоловік";} else { sex = "Жінка";}
+if (user.profile-country == "Не вибрано") {country = "";} else {country = user.profile-country;}
+if (user.resus) {resus = "+";} else {resus = "-";}
+%>
+
+<div id="profile-head">
+    <span id="profile-foto"></span>
+    <span id="profile-name"><%=user.nickname %></span>
+    <div id="profile-country"><%=country %></div>
+</div>
+
+<div id="profile-body">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <img src="../images/contour.png" width="70%">
+            <br>
+            <button id="edit">Редагувати</button>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        Дані профіля
+        <div style="border: 2px solid black">
+            <ul>
+                <li id="gender" style="text-align: left">Стать: <%=sex %></li>
+                <li id="bloodtype" style="text-align: left">Група крові: <%=user.bloodgroop %></li>
+                <li id="resus" style="text-align: left">Резус-фактор: <%=resus %></li>
+            </ul>
+        </div>
+    </div>
+</div>

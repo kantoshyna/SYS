@@ -9,6 +9,9 @@ $(function () {
         $("#menu #" + sessionStorage.getItem("id")).css("color", "#ffffff");
     }
 
+    $('#logo').click(function () {
+        $("#1").trigger('click');
+    });
 
     $('.list-group-item').click(function (e) {
         $(this).addClass('active').siblings().removeClass('active');

@@ -1881,7 +1881,9 @@ process.umask = function() { return 0; };
 
 var ejs = require('ejs');
 
-exports.oneUser = ejs.compile("<div style=\"width: 400px\">\n  <div style=\"display: flex \">\n    <div style=\"width:28%\">\n      <img src=\"<%= user.icon %>\" alt=\"../images/anon.jpg\" style=\"width:100%\" />\n    </div>\n    <div style=\"width:72%\">\n      <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n      <hr />\n      <div style=\"display:flex\">\n        <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      </div>\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>\n");
+exports.oneUser = ejs.compile("<div class=\"oneuser\">\n  <div class=\"oneuserphoto\">\n    <img src=\"<%= user.icon %>\" alt=\"./images/anon.jpg\" style=\"width:100%\" />\n  </div>\n  <div style=\"width:72%\">\n    <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n    <hr>\n    <div style=\"display:flex\">\n      <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>");
+exports.mailWindow = ejs.compile("<div style=\"border-bottom: .5px grey dotted; height: 30px; padding: 4px\">Написати</div>\n<div><input type=\"text\" style=\"height: 80%; width: 100%\"></div>\n<div style=\"border-top: .5px grey dotted; height: 30px; padding: 4px\">\n    <button class=\"submit\">Надіслати</button>\n</div>");
+exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n\n<div id=\"profile-body\">\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 \">\n            <img src=\"../images/contour.png\" width=\"70%\">\n            <br>\n            <button id=\"edit\">Редагувати</button>\n        </div>\n    </div>\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        Дані профіля\n        <div style=\"border: 2px solid black\">\n            <ul>\n                <li id=\"gender\" style=\"text-align: left\">Стать: <%=sex %></li>\n                <li id=\"bloodtype\" style=\"text-align: left\">Група крові: <%=user.bloodgroop %></li>\n                <li id=\"resus\" style=\"text-align: left\">Резус-фактор: <%=resus %></li>\n            </ul>\n        </div>\n    </div>\n</div>");
 },{"ejs":3}],9:[function(require,module,exports){
 var API_URL = "http://localhost:9080";
 
@@ -1918,31 +1920,18 @@ exports.getUserList = function (callback) {
 };
 
 exports.loginUser = function (email, password, callback) {
-    $.ajax({
-        url: API_URL + '/api/login',
-        type: 'POST',
-        contentType: 'application/json',
-        data: {
-            email: [email],
-            password: [password]
-        },
-        success: function (data) {
-            callback(null, data);
-        },
-        error: function () {
-            callback(new Error("Ajax Failed"));
-        }
+    backendPost('/api/login', {
+        email: [email],
+        password: [password]
+    }, callback);
+    backendGet('/api/loggedUser', function (error, data) {
+        localStorage.setItem('user', data);
     });
 };
 
 exports.saveChangedOrgan = function (organ, price) {
-
+    //
 };
-
-/*
-exports.createOrder = function (order_info, callback) {
-    backendPost("/api/create-order/", order_info, callback);
-};*/
 },{}],10:[function(require,module,exports){
 function validateEmail(email) {
     var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -1988,10 +1977,10 @@ $('#reg-form').on('submit', function (event) {
     event.preventDefault();
     var $sex = false,
         $resus = false;
-    if ($('#sex').val == "Чоловік") {
+    if ($('#sex').val() == "Чоловік") {
         $sex = true;
     }
-    if ($('#resus').val == "+") {
+    if ($('#resus').val() == "+") {
         $sex = true;
     }
     if ($('input').val() == "") {
@@ -2003,6 +1992,7 @@ $('#reg-form').on('submit', function (event) {
             email: $('#email-input').val(),
             password: $('#password-1').val(),
             nickname: $('#nick-input').val(),
+            icon: "./images/anon.jpg",
             sex: $sex,
             country: $('#country').val(),
             bloodgroup: $('#bloodgroup').val(),
@@ -2013,27 +2003,26 @@ $('#reg-form').on('submit', function (event) {
             leftlung: 0,
             rightlung: 0,
             stomach: 0,
-            liver: 0
+            liver: 0,
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
             if (error) {
-                console.log("Database error");
+                console.log("Database error" + error);
             } else {
                 console.log("Database success");
             }
         });
-
-        $.ajax({
-            url: "http://localhost:9090"
-        });
+        localStorage.setItem('user', newUser);
+        window.location.href = "/profile";
+        $("#2").trigger('click');
     }
-
 });
+
 
 function backendPost(url, data, callback) {
     $.ajax({
-        url: url,
+        url: "http://localhost:9080" + url,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
@@ -2294,44 +2283,53 @@ var loginwindow = $("#pro-logsite");
 var api = require('./api'); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $("#login").click(function () {
-    var logsite = document.createElement('div');
-    logsite.id = "logsite";
-    var logwind = document.createElement('form');
-    logwind.id = "logwind";
-    logwind.className = "logwind";
-    logwind.innerHTML = '<div style = "padding: 5% 5% 2%; border-bottom: 1px grey dotted" >' +
-        '<p style = "color: black; font-size:17px"> <b> Авторизація </b> </p>' +
+    if (localStorage.getItem('user')) {
+        var logsite = document.createElement('div');
+        logsite.id = "logsite";
+        var logwind = document.createElement('form');
+        logwind.id = "logwind";
+        logwind.className = "logwind";
+        logwind.innerHTML = '<div style = "padding: 5% 5% 2%; border-bottom: 1px grey dotted" >' +
+            '<p style = "color: black; font-size:17px"> <b> Авторизація </b> </p>' +
 
-        '</div>' +
-        '<div style=" padding: 5% ">' +
-        '  <span>Email</span>' +
-        '<input type="text" id="input1">  </div>' +
+            '</div>' +
+            '<div style=" padding: 5% ">' +
+            '  <span>Email</span>' +
+            '<input type="text" id="input1">  </div>' +
 
-        '   <div style=" padding: 5%"> <span>Пароль</span>' +
-        '      <input type="password" id="input2">  </div>' +
-        '<div id="wrong-password">Неправильний логін або пароль!</div>' +
-        '<div style="padding: 5%; border-top: 1px grey dotted; display: flex">' +
-        '<a href="/registration" style="color: black; margin-right: .6em;">Ще не зареєстровані?</a>' +
-        '<button class="submit" id="login-submit">Увійти</button>' +
-        '</div >';
+            '   <div style=" padding: 5%"> <span>Пароль</span>' +
+            '      <input type="password" id="input2">  </div>' +
+            '<div id="wrong-password">Неправильний логін або пароль!</div>' +
+            '<div style="padding: 5%; border-top: 1px grey dotted; display: flex">' +
+            '<a href="/registration" style="color: black; margin-right: .6em;">Ще не зареєстровані?</a>' +
+            '<button class="submit" id="login-submit">Увійти</button>' +
+            '</div >';
 
-    logsite.append(logwind);
-    loginwindow.append(logsite);
+        logsite.append(logwind);
+        loginwindow.append(logsite);
 
-    $("#login-submit").click(function (e) {
-        e.preventDefault();
-        api.loginUser($('#input1').val(), $('#input2').val(),
-            function (error, data) {
-                if (error) {
-                    console.log('login failed: ' + error);
-                    $('#wrong-password').css('display', 'block');
-                } else {
-                    alert("успішний вхід");
-                    console.log("success");
-                    // open profile page for the user
-                }
-            });
-    });
+        $("#login-submit").click(function (e) {
+            e.preventDefault();
+            api.loginUser($('#input1').val(), $('#input2').val(),
+                function (error, data) {
+                    if (error) {
+                        console.log('login failed: ' + error);
+                        $('#wrong-password').css('display', 'block');
+                    } else {
+                        alert("успішний вхід");
+                        console.log("success");
+                        $('#login').val = "Вийти";
+                        window.location.href = "/profile";
+                        // open profile page for the user
+                    }
+                });
+        });
+
+    } else {
+        localStorage.removeItem('user');
+        $('#login').val = "Увійти";
+        window.location.href = "/";
+    }
 
 });
 $(document).mouseup(function (e) {
@@ -2342,6 +2340,8 @@ $(document).mouseup(function (e) {
     }
 });
 },{"./api":9}],15:[function(require,module,exports){
+var Templates = require('./Templates');
+
 $(function () {
     ifUser();
     require("../complexify/jquery.complexify");
@@ -2358,33 +2358,37 @@ $(function () {
 });
 
 function ifUser() {
-    //var user = localStorage.getItem('user');
-    if (!localStorage.getItem('user')) {
+    if (!!localStorage.getItem('user')) {
         $('#2').css('display', 'block');
-        $('#usercontent').html('<div id="profile-head"> <span id = "profile-foto" > </span> ' +
-            '<span id = "profile-name" > Profile name </span>' +
-            '<div id = "profile-country" > Profile country </div> </div>' +
-            '<div id = "profile-body" >' +
-            '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
-            '<div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 " >' +
-            '<img src = "../images/contour.png" width = "70%" > <br>' +
-            '<button id = "edit" > Редагувати </button> </div> </div>' +
-            '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
-            'Дані профіля' +
-            '<div style = "border: 2px solid black" >' +
-            '<ul>' +
-            '<li id = "gender" style = "text-align: left" > Стать: kek </li>' +
-            '<li id = "age" style = "text-align: left" > Вік: -10 </li>' +
-            '<li id = "bloodtype" style = "text-align: left" > Група крові: 5 </li>' +
-            '<li id = "resus" style = "text-align: left" > Резус - фактор: /</li>' +
-            '</ul> </div> </div> </div>');
+        $('#usercontent').innerHTML = Templates.userProfile({
+            user: [localStorage.getItem('user')]
+        });
+
+        /*
+                $('#usercontent').html('<div id="profile-head"> <span id = "profile-foto" > </span> ' +
+                    '<span id = "profile-name" > Profile name </span>' +
+                    '<div id = "profile-country" > Profile country </div> </div>' +
+                    '<div id = "profile-body" >' +
+                    '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
+                    '<div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 " >' +
+                    '<img src = "../images/contour.png" width = "70%" > <br>' +
+                    '<button id = "edit" > Редагувати </button> </div> </div>' +
+                    '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
+                    'Дані профіля' +
+                    '<div style = "border: 2px solid black" >' +
+                    '<ul>' +
+                    '<li id = "gender" style = "text-align: left" > Стать: kek </li>' +
+                    '<li id = "age" style = "text-align: left" > Вік: -10 </li>' +
+                    '<li id = "bloodtype" style = "text-align: left" > Група крові: 5 </li>' +
+                    '<li id = "resus" style = "text-align: left" > Резус - фактор: /</li>' +
+                    '</ul> </div> </div> </div>');*/
     } else {
         $('#2').css('display', 'none');
         $('#usercontent').html('<div style="font-size: 16px; margin: 16px">' +
             'Ви не авторизовані! Увійдіть до свого акаунта, щоб мати доступ до цієї сторінки.</div>');
     }
 }
-},{"../complexify/jquery.complexify":1,"./Templates.js":8,"./api.js":9,"./checks.js":10,"./edit-profile.js":11,"./editWindow.js":12,"./fotowindow.js":13,"./loginwindow.js":14,"./menu.js":16,"./oneuserbuttonclick":17,"./users.js":18}],16:[function(require,module,exports){
+},{"../complexify/jquery.complexify":1,"./Templates":8,"./Templates.js":8,"./api.js":9,"./checks.js":10,"./edit-profile.js":11,"./editWindow.js":12,"./fotowindow.js":13,"./loginwindow.js":14,"./menu.js":16,"./oneuserbuttonclick":17,"./users.js":18}],16:[function(require,module,exports){
 $(function () {
 
     if (sessionStorage.getItem("id")) {
@@ -2396,6 +2400,9 @@ $(function () {
         $("#menu #" + sessionStorage.getItem("id")).css("color", "#ffffff");
     }
 
+    $('#logo').click(function () {
+        $("#1").trigger('click');
+    });
 
     $('.list-group-item').click(function (e) {
         $(this).addClass('active').siblings().removeClass('active');
@@ -2421,6 +2428,8 @@ $(function () {
 
 });
 },{}],17:[function(require,module,exports){
+var templates = require('./Templates');
+
 $('.oneuserbutton').click(function () {
     if (!!localStorage.getItem('user')) {
         alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
@@ -2431,18 +2440,26 @@ $('.oneuserbutton').click(function () {
         var mailwind = document.createElement('form');
         mailwind.id = "mailwind";
         mailwind.className = "logwind";
+        mailwind.innerHTML = templates.mailWindow();
         mailsite.append(mailwind);
         mailwindow.append(mailsite);
     }
+    $(document).mouseup(function (e) {
+        var logwind = $('#mailwind');
+        if (logwind.has(e.target).length === 0) {
+            loginwindow.empty();
+            loginwindow.id = "pro-logsite";
+        }
+    });
 });
-},{}],18:[function(require,module,exports){
+},{"./Templates":8}],18:[function(require,module,exports){
 var Templates = require("./Templates");
 var api = require("./api");
 
 var $User_list = $("#userlist");
 
 function showUserList(list) {
-  $User_list.html("");
+  //  $User_list.html("");
 
   function showOneUser(User) {
     var html_code = Templates.oneUser({

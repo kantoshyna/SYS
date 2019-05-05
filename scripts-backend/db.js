@@ -13,6 +13,7 @@ var UserSchema = new mongoose.Schema({
     email: String,
     password: String,
     nickname: String,
+    icon: String,
     sex: Boolean,
     country: String,
     bloodgroup: Number,
@@ -35,22 +36,7 @@ exports.getUsers = function (callback) {
     });
 };
 
-exports.saveUser = function (newUser, cb) {
-    var newEmail = newUser.email,
-        newPassword = newUser.password;
-    if (hasUser(newEmail, newPassword)) {
-        throw "such user exists";
-    }
-    var user1 = new User(newUser);
-    user1.save(cb);
-
-};
-
-exports.updateUser = function (newUser) {
-    // session
-};
-
-exports.hasUser = function (email, password) {
+function hasUser(email, password) {
     User.find({
         'email': email,
         'password': password
@@ -61,7 +47,36 @@ exports.hasUser = function (email, password) {
             return false;
         }
     });
+}
+
+function hasUser(email) {
+    User.find({
+        'email': email
+    }, function (error, arr) {
+        if (arr.length > 0) {
+            return true; // == such user exists
+        } else {
+            return false;
+        }
+    });
+}
+
+function saveUser(newUser, cb) {
+    var newEmail = newUser.email;
+    if (hasUser(newEmail)) {
+        alert("Користувач із таким email уже зареєстрований.");
+        throw "such user exists";
+    }
+    var user1 = new User(newUser);
+    user1.save(cb);
+}
+
+exports.saveUser = saveUser;
+
+exports.updateUser = function (newUser) {
+    // session
 };
+
 
 exports.setupUser = function (email, password) {
     User.find({
@@ -70,13 +85,13 @@ exports.setupUser = function (email, password) {
     }, function (error, arr) {
         if (error) throw error;
         if (arr.length > 0) {
-            localStorage.setItem('user', arr[0]);
             console.log('successfully logged in');
+            return arr[0];
+            // localStorage.setItem('user', arr[0]);
         } else {
             throw "Such user doesn`t exist";
         }
     });
-
 };
 
 // повертає масив відсортованих у порядку зростання ціни на орган користувачів

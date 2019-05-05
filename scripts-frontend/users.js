@@ -4,7 +4,7 @@ var api = require("./api");
 var $User_list = $("#userlist");
 
 function showUserList(list) {
-  $User_list.html("");
+  //  $User_list.html("");
 
   function showOneUser(User) {
     var html_code = Templates.oneUser({

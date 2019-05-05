@@ -1,5 +1,15 @@
 var profiles = require('../data/profiles');
 var db = require('./db');
+var loggedUser;
+
+exports.getLoggedUser = function (req, res) {
+    res.send(loggedUser);
+};
+
+exports.loadProfile = function (req, res) {
+    var userattributes = req.body;
+    loggedUser = db.setupUser(userattributes.email, userattributes.password);
+};
 
 exports.getProfiles = function (req, res) {
     db.getUsers(function (error, arr) {
@@ -27,9 +37,4 @@ exports.createProfile = function (req, res) {
             console.log("save user");
         }
     });
-};
-
-exports.loadProfile = function (req, res) {
-    var userattributes = req.body;
-    db.setupUser(userattributes.email, userattributes.password);
 };

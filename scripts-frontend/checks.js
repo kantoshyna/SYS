@@ -42,10 +42,10 @@ $('#reg-form').on('submit', function (event) {
     event.preventDefault();
     var $sex = false,
         $resus = false;
-    if ($('#sex').val == "Чоловік") {
+    if ($('#sex').val() == "Чоловік") {
         $sex = true;
     }
-    if ($('#resus').val == "+") {
+    if ($('#resus').val() == "+") {
         $sex = true;
     }
     if ($('input').val() == "") {
@@ -57,6 +57,7 @@ $('#reg-form').on('submit', function (event) {
             email: $('#email-input').val(),
             password: $('#password-1').val(),
             nickname: $('#nick-input').val(),
+            icon: "./images/anon.jpg",
             sex: $sex,
             country: $('#country').val(),
             bloodgroup: $('#bloodgroup').val(),
@@ -67,27 +68,26 @@ $('#reg-form').on('submit', function (event) {
             leftlung: 0,
             rightlung: 0,
             stomach: 0,
-            liver: 0
+            liver: 0,
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
             if (error) {
-                console.log("Database error");
+                console.log("Database error" + error);
             } else {
                 console.log("Database success");
             }
         });
-
-        $.ajax({
-            url: "http://localhost:9090"
-        });
+        localStorage.setItem('user', newUser);
+        window.location.href = "/profile";
+        $("#2").trigger('click');
     }
-
 });
+
 
 function backendPost(url, data, callback) {
     $.ajax({
-        url: url,
+        url: "http://localhost:9080" + url,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
