@@ -1,8 +1,9 @@
 var templates = require('./Templates');
 
-$('.oneuserbutton').click(function () {
+$('.oneuserbutton').on('click', function () {
     if (!!localStorage.getItem('user')) {
         alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
+        console.log('preserved writing by not signed up person');
     } else {
         var mailwindow = $("#pro-logsite");
         var mailsite = document.createElement('div');
@@ -13,6 +14,7 @@ $('.oneuserbutton').click(function () {
         mailwind.innerHTML = templates.mailWindow();
         mailsite.append(mailwind);
         mailwindow.append(mailsite);
+        console.log('mailwindow appeared');
     }
     $(document).mouseup(function (e) {
         var logwind = $('#mailwind');

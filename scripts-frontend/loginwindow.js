@@ -1,7 +1,7 @@
 var loginwindow = $("#pro-logsite");
 var api = require("./api"); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-$("#login").click(function() {
+$("#login").click(function () {
   //   if (!localStorage.getItem('user')) {   UNCOMMENT WHEN YOU`RE READY
   var logsite = document.createElement("div");
   logsite.id = "logsite";
@@ -26,12 +26,9 @@ $("#login").click(function() {
   logsite.append(logwind);
   loginwindow.append(logsite);
 
-  $("#login-submit").click(function(e) {
+  $("#login-submit").click(function (e) {
     e.preventDefault();
-    api.loginUser($("#input1").val(), $("#input2").val(), function(
-      error,
-      data
-    ) {
+    api.loginUser($("#input1").val(), $("#input2").val(), function (error, data) {
       if (error) {
         console.log("login failed: " + error);
         $("#wrong-password").css("display", "block");
@@ -51,7 +48,7 @@ $("#login").click(function() {
         window.location.href = "/";
     }*/
 });
-$(document).mouseup(function(e) {
+$(document).mouseup(function (e) {
   var logwind = $(".logwind");
   if (logwind.has(e.target).length === 0) {
     loginwindow.empty();

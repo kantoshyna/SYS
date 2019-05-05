@@ -8,7 +8,13 @@ exports.getLoggedUser = function (req, res) {
 
 exports.loadProfile = function (req, res) {
     var userattributes = req.body;
-    loggedUser = db.setupUser(userattributes.email, userattributes.password);
+    db.setupUser(userattributes.email, userattributes.password, function (error, data) {
+        if (error) {
+            console.log(error);
+        } else {
+            loggedUser = data;
+        }
+    });
 };
 
 exports.getProfiles = function (req, res) {
@@ -27,14 +33,16 @@ exports.createProfile = function (req, res) {
 
     db.saveUser(register_info, function (error, data) {
         if (error) {
+            console.log('register error: ' + error);
             res.send({
-                success: false
+                success: false,
+                error: [error]
             });
         } else {
             res.send({
                 success: true
             });
-            console.log("save user");
+            console.log("user saved");
         }
     });
 };
