@@ -30,11 +30,12 @@ $("#login").click(function () {
     e.preventDefault();
     api.loginUser($("#input1").val(), $("#input2").val(), function (error, data) {
       if (error) {
-        console.log("login failed: " + error);
+        console.log("--login failed: " + error);
         $("#wrong-password").css("display", "block");
       } else {
+        localStorage.setItem('user', data);
         alert("успішний вхід");
-        console.log("success");
+        console.log("--success");
         $("#login").val = "Вийти";
         window.location.href = "/profile";
         // open profile page for the user

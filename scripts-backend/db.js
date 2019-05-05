@@ -3,7 +3,7 @@ mongoose.connect('mongodb://admin:admin@mongodb-1536-0.cloudclusters.net:10003/s
 
 var db = mongoose.connection;
 db.on('error', function (err) {
-    console.log('connection	error:', err.message);
+    console.log('--connection	error:', err.message);
 });
 db.once('open', function callback() {
     console.log("Connected	to	DB!");
@@ -65,7 +65,7 @@ function saveUser(newUser, cb) {
     var newEmail = newUser.email;
     if (hasUser(newEmail)) {
         alert("Користувач із таким email уже зареєстрований.");
-        cb(new Error("such user exists"));
+        cb(new Error("--such user exists"));
     }
     var user1 = new User(newUser);
     user1.save(cb);
@@ -84,14 +84,14 @@ exports.setupUser = function (email, password, cb) {
         'password': password
     }, function (error, arr) {
         if (error) {
-            cb(new Error("Error while setting up user in db.js.setupUser"));
+            cb(new Error("--Error while setting up user in db.js.setupUser"));
         } else {
             if (arr.length > 0) {
-                console.log('user exists in db.js.setupUser');
+                console.log('--user exists in db.js.setupUser');
                 cb(null, arr[0]);
                 // localStorage.setItem('user', arr[0]);
             } else {
-                cb(new Error("Such user doesn`t exist in db.js.setupUser"));
+                cb(new Error("--Such user doesn`t exist in db.js.setupUser"));
             }
         }
 

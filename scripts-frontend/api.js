@@ -36,10 +36,17 @@ exports.loginUser = function (email, password, callback) {
     backendPost('/api/login', {
         email: [email],
         password: [password]
-    }, callback);
-    backendGet('/api/loggedUser', function (error, data) {
-        localStorage.setItem('user', data);
+    }, function (error, data) {
+        if (error) {
+            console.log('--Error in loginUser: ' + error);
+            callback(error);
+        } else {
+            backendGet('/api/loggedUser', function (error, data) {
+                callback(null, data);
+            });
+        }
     });
+
 };
 
 exports.saveChangedOrgan = function (organ, price) {

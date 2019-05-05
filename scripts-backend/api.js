@@ -13,6 +13,7 @@ exports.loadProfile = function (req, res) {
             console.log(error);
         } else {
             loggedUser = data;
+            console.log('--loggedUser equals ' + loggedUser + '--I see it in scripts-backend/api.js loadProfile');
         }
     });
 };
