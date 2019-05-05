@@ -76,7 +76,7 @@ $('#reg-form').on('submit', function (event) {
                 console.log("Database error" + error);
             } else {
                 console.log("Database success");
-                localStorage.setItem('user', newUser);
+                localStorage.setItem('user', data);
                 window.location.href = "/profile";
                 $("#2").trigger('click');
             }

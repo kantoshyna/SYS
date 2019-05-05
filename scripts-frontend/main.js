@@ -18,10 +18,10 @@ $(function () {
 function ifUser() {
     if (!!localStorage.getItem('user')) {
         $('#2').css('display', 'block');
-        $('#usercontent').innerHTML = Templates.userProfile({
+        var text = Templates.userProfile({
             user: [localStorage.getItem('user')]
         });
-
+        $('#usercontent').html(text);
         /*
                 $('#usercontent').html('<div id="profile-head"> <span id = "profile-foto" > </span> ' +
                     '<span id = "profile-name" > Profile name </span>' +

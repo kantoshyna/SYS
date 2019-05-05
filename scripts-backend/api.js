@@ -13,7 +13,7 @@ exports.loadProfile = function (req, res) {
             console.log(error);
         } else {
             loggedUser = data;
-            console.log('--loggedUser equals ' + loggedUser + '--I see it in scripts-backend/api.js loadProfile');
+            console.log('--loggedUser equals ' + loggedUser + '\n--I see it in scripts-backend/api.js loadProfile');
         }
     });
 };
@@ -21,20 +21,20 @@ exports.loadProfile = function (req, res) {
 exports.getProfiles = function (req, res) {
     db.getUsers(function (error, arr) {
         if (error) {
-            console.log("could not get users from DB in api.js.getProfiles");
+            console.log("--could not get users from DB in api.js.getProfiles");
         }
-        console.log("got users from DB in api.js.getProfiles");
+        console.log("--got users from DB in api.js.getProfiles");
         res.send(arr);
     });
 };
 
 exports.createProfile = function (req, res) {
     var register_info = req.body;
-    console.log("Creating Profile", register_info);
+    console.log("--Creating Profile", register_info);
 
     db.saveUser(register_info, function (error, data) {
         if (error) {
-            console.log('register error: ' + error);
+            console.log('--register error: ' + error);
             res.send({
                 success: false,
                 error: [error]
@@ -43,7 +43,7 @@ exports.createProfile = function (req, res) {
             res.send({
                 success: true
             });
-            console.log("user saved");
+            console.log("--user saved");
         }
     });
 };

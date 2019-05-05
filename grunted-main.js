@@ -1933,7 +1933,6 @@ exports.loginUser = function (email, password, callback) {
             });
         }
     });
-
 };
 
 exports.saveChangedOrgan = function (organ, price) {
@@ -2018,7 +2017,7 @@ $('#reg-form').on('submit', function (event) {
                 console.log("Database error" + error);
             } else {
                 console.log("Database success");
-                localStorage.setItem('user', newUser);
+                localStorage.setItem('user', data);
                 window.location.href = "/profile";
                 $("#2").trigger('click');
             }
@@ -2321,7 +2320,7 @@ $("#login").click(function () {
         console.log("--login failed: " + error);
         $("#wrong-password").css("display", "block");
       } else {
-        localStorage.setItem('user', data);
+        localStorage.setItem('kate', data);
         alert("успішний вхід");
         console.log("--success");
         $("#login").val = "Вийти";
@@ -2365,10 +2364,10 @@ $(function () {
 function ifUser() {
     if (!!localStorage.getItem('user')) {
         $('#2').css('display', 'block');
-        $('#usercontent').innerHTML = Templates.userProfile({
+        var text = Templates.userProfile({
             user: [localStorage.getItem('user')]
         });
-
+        $('#usercontent').html(text);
         /*
                 $('#usercontent').html('<div id="profile-head"> <span id = "profile-foto" > </span> ' +
                     '<span id = "profile-name" > Profile name </span>' +
@@ -2436,21 +2435,25 @@ $(function () {
 var templates = require('./Templates');
 
 $('.oneuserbutton').on('click', function () {
-    if (!!localStorage.getItem('user')) {
-        alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
-        console.log('preserved writing by not signed up person');
-    } else {
-        var mailwindow = $("#pro-logsite");
-        var mailsite = document.createElement('div');
-        mailsite.id = "logsite";
-        var mailwind = document.createElement('form');
-        mailwind.id = "mailwind";
-        mailwind.className = "logwind";
-        mailwind.innerHTML = templates.mailWindow();
-        mailsite.append(mailwind);
-        mailwindow.append(mailsite);
-        console.log('mailwindow appeared');
-    }
+    /*   if (!!localStorage.getItem('user')) {
+           alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
+           console.log('preserved writing by not signed up person');
+       } else {*/
+    var mailwindow = $("#pro-logsite");
+    var mailsite = document.createElement('div');
+    mailsite.id = "logsite";
+    var mailwind = document.createElement('form');
+    mailwind.id = "mailwind";
+    mailwind.className = "logwind";
+    mailwind.innerHTML = '<div style="border-bottom: .5px grey dotted; height: 30px; padding: 4px">Написати</div>' +
+        '<div><input type="text" style="height: 80%; width: 100%"></div>' +
+        '<div style="border-top: .5px grey dotted; height: 30px; padding: 4px">' +
+        '<button class="submit">Надіслати</button>' +
+        '</div>';
+    mailsite.append(mailwind);
+    mailwindow.append(mailsite);
+    console.log('mailwindow appeared');
+    //}
     $(document).mouseup(function (e) {
         var logwind = $('#mailwind');
         if (logwind.has(e.target).length === 0) {

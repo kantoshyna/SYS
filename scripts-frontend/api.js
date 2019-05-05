@@ -46,7 +46,6 @@ exports.loginUser = function (email, password, callback) {
             });
         }
     });
-
 };
 
 exports.saveChangedOrgan = function (organ, price) {
