@@ -85,7 +85,7 @@ exports.setupUser = function (email, password) {
     }, function (error, arr) {
         if (error) throw error;
         if (arr.length > 0) {
-            console.log('successfully logged in');
+            console.log('user exists in db.js.setupUser');
             return arr[0];
             // localStorage.setItem('user', arr[0]);
         } else {
