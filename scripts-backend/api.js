@@ -2,8 +2,11 @@ var profiles = require('../data/profiles');
 var db = require('./db');
 
 exports.getProfiles = function (req, res) {
-    //res.send(profiles);
     db.getUsers(function (error, arr) {
+        if (error) {
+            console.log("could not get users from DB in api.js.getProfiles");
+        }
+        console.log("got users from DB in api.js.getProfiles");
         res.send(arr);
     });
 };
@@ -27,5 +30,6 @@ exports.createProfile = function (req, res) {
 };
 
 exports.loadProfile = function (req, res) {
-
+    var userattributes = req.body;
+    db.setupUser(userattributes.email, userattributes.password);
 };

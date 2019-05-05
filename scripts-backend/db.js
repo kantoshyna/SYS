@@ -36,7 +36,6 @@ exports.getUsers = function (callback) {
 };
 
 exports.saveUser = function (newUser, cb) {
-    debugger;
     var newEmail = newUser.email,
         newPassword = newUser.password;
     if (hasUser(newEmail, newPassword)) {
@@ -57,11 +56,27 @@ exports.hasUser = function (email, password) {
         'password': password
     }, function (error, arr) {
         if (arr.length > 0) {
-            return true; // such user exists
+            return true; // == such user exists
         } else {
             return false;
         }
     });
+};
+
+exports.setupUser = function (email, password) {
+    User.find({
+        'email': email,
+        'password': password
+    }, function (error, arr) {
+        if (error) throw error;
+        if (arr.length > 0) {
+            localStorage.setItem('user', arr[0]);
+            console.log('successfully logged in');
+        } else {
+            throw "Such user doesn`t exist";
+        }
+    });
+
 };
 
 // повертає масив відсортованих у порядку зростання ціни на орган користувачів

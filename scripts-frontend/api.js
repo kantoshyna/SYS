@@ -1,4 +1,4 @@
-var API_URL = "http://localhost:9090";
+var API_URL = "http://localhost:9080";
 
 function backendGet(url, callback) {
     $.ajax({
@@ -29,13 +29,25 @@ function backendPost(url, data, callback) {
 }
 
 exports.getUserList = function (callback) {
-    backendGet("/api/profiles/", callback);
+    backendGet("/api/profiles", callback);
 };
 
-exports.loginUser = function () {
-    var obj = $('#logwind').serializeJSON();
-    backendPost("/api/login", obj, callback);
-    return false;
+exports.loginUser = function (email, password, callback) {
+    $.ajax({
+        url: API_URL + '/api/login',
+        type: 'POST',
+        contentType: 'application/json',
+        data: {
+            email: [email],
+            password: [password]
+        },
+        success: function (data) {
+            callback(null, data);
+        },
+        error: function () {
+            callback(new Error("Ajax Failed"));
+        }
+    });
 };
 
 exports.saveChangedOrgan = function (organ, price) {

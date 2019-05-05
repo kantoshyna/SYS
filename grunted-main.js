@@ -1881,10 +1881,9 @@ process.umask = function() { return 0; };
 
 var ejs = require('ejs');
 
-
-exports.oneUser = ejs.compile(" <div style=\"width: 400px\">\n     <div style=\"display: flex \">\n         <div style=\"width:28%\">\n             <img src=\"<%= user.icon %>\" alt=\"../images/anon.jpg\" style=\"width:100%\">\n         </div>\n\n         <div style=\"width:72%\">\n             <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n             <hr>\n             <div style=\"display:flex\">\n                 <%= var image;\n                 if (user.brain > 0) { \n                     image = \"../images/brainOfPanel1.png\"\n                    } else {\n                        image = \"../images/brainOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n                 <%= if (user.rightlung > 0) { \n                     image = \"../images/rightLungOfPanel1.png\"\n                    } else {\n                        image = \"../images/rightLungOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n                 <%= if (user.leftlung > 0) { \n                     image = \"../images/leftLungOfPanel1.png\"\n                    } else {\n                        image = \"../images/leftLungOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n                 <%= if (user.rightkidney > 0) { \n                     image = \"../images/rightKidneyOfPanel1.png\"\n                    } else {\n                        image = \"../images/rightKidneyOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n                 <%= if (user.leftkidney > 0) { \n                     image = \"../images/leftKidneyOfPanel1.png\"\n                    } else {\n                        image = \"../images/leftKidneyOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n                 <%= if (user.liver > 0) { \n                     image = \"../images/liverOfPanel1.png\"\n                    } else {\n                        image = \"../images/liverOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n                 <%= if (user.stomach > 0) { \n                     image = \"../images/stomachOfPanel1.png\"\n                    } else {\n                        image = \"../images/stomachOfPanel2.png\"\n                    } \n                 %>\n                 <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\">\n             </div>\n         </div>\n     </div>\n </div>");
+exports.oneUser = ejs.compile("<div style=\"width: 400px\">\n  <div style=\"display: flex \">\n    <div style=\"width:28%\">\n      <img src=\"<%= user.icon %>\" alt=\"../images/anon.jpg\" style=\"width:100%\" />\n    </div>\n    <div style=\"width:72%\">\n      <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n      <hr />\n      <div style=\"display:flex\">\n        <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n        <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n        <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      </div>\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>\n");
 },{"ejs":3}],9:[function(require,module,exports){
-var API_URL = "http://localhost:9090";
+var API_URL = "http://localhost:9080";
 
 function backendGet(url, callback) {
     $.ajax({
@@ -1915,11 +1914,25 @@ function backendPost(url, data, callback) {
 }
 
 exports.getUserList = function (callback) {
-    backendGet("/api/profiles/", callback);
+    backendGet("/api/profiles", callback);
 };
 
-exports.loginUser = function (organ, price) {
-    return false; //!!!!!!!!!!!!!!!!!!!!!!!!!!s
+exports.loginUser = function (email, password, callback) {
+    $.ajax({
+        url: API_URL + '/api/login',
+        type: 'POST',
+        contentType: 'application/json',
+        data: {
+            email: [email],
+            password: [password]
+        },
+        success: function (data) {
+            callback(null, data);
+        },
+        error: function () {
+            callback(new Error("Ajax Failed"));
+        }
+    });
 };
 
 exports.saveChangedOrgan = function (organ, price) {
@@ -1931,10 +1944,6 @@ exports.createOrder = function (order_info, callback) {
     backendPost("/api/create-order/", order_info, callback);
 };*/
 },{}],10:[function(require,module,exports){
-//import "complexify/jquery.complexify";
-//var api = require('./api');
-require("../complexify/jquery.complexify");
-
 function validateEmail(email) {
     var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     return pattern.test(String(email).toLowerCase());
@@ -2036,7 +2045,7 @@ function backendPost(url, data, callback) {
         }
     });
 }
-},{"../complexify/jquery.complexify":1}],11:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 //var db = require("../scripts-backend/db");
 //var api = require('./api');
 var back = $("#pro-logsite");
@@ -2311,25 +2320,31 @@ $("#login").click(function () {
 
     $("#login-submit").click(function (e) {
         e.preventDefault();
-        if (api.loginUser($('#input1').val(), $('#input2').val())) {
-            alert("успішний вхід");
-            console.log("success");
-            // open profile page for the user
-        } else {
-            $('#wrong-password').css('display', 'block');
-            console.log("not success");
-        }
+        api.loginUser($('#input1').val(), $('#input2').val(),
+            function (error, data) {
+                if (error) {
+                    console.log('login failed: ' + error);
+                    $('#wrong-password').css('display', 'block');
+                } else {
+                    alert("успішний вхід");
+                    console.log("success");
+                    // open profile page for the user
+                }
+            });
     });
-    $(document).mouseup(function (e) {
-        var logwind = $('.logwind');
-        if (logwind.has(e.target).length === 0) {
-            loginwindow.empty();
-            loginwindow.id = "pro-logsite";
-        }
-    });
+
+});
+$(document).mouseup(function (e) {
+    var logwind = $('.logwind');
+    if (logwind.has(e.target).length === 0) {
+        loginwindow.empty();
+        loginwindow.id = "pro-logsite";
+    }
 });
 },{"./api":9}],15:[function(require,module,exports){
 $(function () {
+    ifUser();
+    require("../complexify/jquery.complexify");
     require('./api.js');
     require('./checks.js');
     require('./edit-profile.js');
@@ -2338,9 +2353,38 @@ $(function () {
     require('./loginwindow.js');
     require('./menu.js');
     require('./Templates.js');
+    require('./oneuserbuttonclick');
     require('./users.js');
 });
-},{"./Templates.js":8,"./api.js":9,"./checks.js":10,"./edit-profile.js":11,"./editWindow.js":12,"./fotowindow.js":13,"./loginwindow.js":14,"./menu.js":16,"./users.js":17}],16:[function(require,module,exports){
+
+function ifUser() {
+    //var user = localStorage.getItem('user');
+    if (!localStorage.getItem('user')) {
+        $('#2').css('display', 'block');
+        $('#usercontent').html('<div id="profile-head"> <span id = "profile-foto" > </span> ' +
+            '<span id = "profile-name" > Profile name </span>' +
+            '<div id = "profile-country" > Profile country </div> </div>' +
+            '<div id = "profile-body" >' +
+            '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
+            '<div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 " >' +
+            '<img src = "../images/contour.png" width = "70%" > <br>' +
+            '<button id = "edit" > Редагувати </button> </div> </div>' +
+            '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
+            'Дані профіля' +
+            '<div style = "border: 2px solid black" >' +
+            '<ul>' +
+            '<li id = "gender" style = "text-align: left" > Стать: kek </li>' +
+            '<li id = "age" style = "text-align: left" > Вік: -10 </li>' +
+            '<li id = "bloodtype" style = "text-align: left" > Група крові: 5 </li>' +
+            '<li id = "resus" style = "text-align: left" > Резус - фактор: /</li>' +
+            '</ul> </div> </div> </div>');
+    } else {
+        $('#2').css('display', 'none');
+        $('#usercontent').html('<div style="font-size: 16px; margin: 16px">' +
+            'Ви не авторизовані! Увійдіть до свого акаунта, щоб мати доступ до цієї сторінки.</div>');
+    }
+}
+},{"../complexify/jquery.complexify":1,"./Templates.js":8,"./api.js":9,"./checks.js":10,"./edit-profile.js":11,"./editWindow.js":12,"./fotowindow.js":13,"./loginwindow.js":14,"./menu.js":16,"./oneuserbuttonclick":17,"./users.js":18}],16:[function(require,module,exports){
 $(function () {
 
     if (sessionStorage.getItem("id")) {
@@ -2377,6 +2421,21 @@ $(function () {
 
 });
 },{}],17:[function(require,module,exports){
+$('.oneuserbutton').click(function () {
+    if (!!localStorage.getItem('user')) {
+        alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
+    } else {
+        var mailwindow = $("#pro-logsite");
+        var mailsite = document.createElement('div');
+        mailsite.id = "logsite";
+        var mailwind = document.createElement('form');
+        mailwind.id = "mailwind";
+        mailwind.className = "logwind";
+        mailsite.append(mailwind);
+        mailwindow.append(mailsite);
+    }
+});
+},{}],18:[function(require,module,exports){
 var Templates = require("./Templates");
 var api = require("./api");
 
@@ -2387,7 +2446,7 @@ function showUserList(list) {
 
   function showOneUser(User) {
     var html_code = Templates.oneUser({
-      User: User
+      user: User
     });
     var $node = $(html_code);
     $User_list.append($node);
@@ -2397,20 +2456,16 @@ function showUserList(list) {
 }
 
 function initialiseUsers(data) {
-  getUserList(function (error, data) {
-    showUserList(data);
-  });
+  showUserList(data);
 }
-
-exports.initialiseUsers = initialiseUsers;
 
 $(document).ready(function () {
-  getUserList(function (error, data) {
-    initialiseUsers(data);
+  api.getUserList(function (error, data) {
+    if (error) {
+      console.log("not get user list in users.js.api.getUserList" + error);
+    } else {
+      initialiseUsers(data);
+    }
   });
 });
-
-function getUserList(callback) {
-  api.backendGet("/api/profiles/", callback);
-}
 },{"./Templates":8,"./api":9}]},{},[15]);

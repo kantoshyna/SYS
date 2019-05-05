@@ -8,7 +8,7 @@ function showUserList(list) {
 
   function showOneUser(User) {
     var html_code = Templates.oneUser({
-      User: User
+      user: User
     });
     var $node = $(html_code);
     $User_list.append($node);
@@ -18,19 +18,15 @@ function showUserList(list) {
 }
 
 function initialiseUsers(data) {
-  getUserList(function (error, data) {
-    showUserList(data);
-  });
+  showUserList(data);
 }
-
-exports.initialiseUsers = initialiseUsers;
 
 $(document).ready(function () {
-  getUserList(function (error, data) {
-    initialiseUsers(data);
+  api.getUserList(function (error, data) {
+    if (error) {
+      console.log("not get user list in users.js.api.getUserList" + error);
+    } else {
+      initialiseUsers(data);
+    }
   });
 });
-
-function getUserList(callback) {
-  api.backendGet("/api/profiles/", callback);
-}

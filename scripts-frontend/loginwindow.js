@@ -28,20 +28,24 @@ $("#login").click(function () {
 
     $("#login-submit").click(function (e) {
         e.preventDefault();
-        if (api.loginUser($('#input1').val(), $('#input2').val())) {
-            alert("успішний вхід");
-            console.log("success");
-            // open profile page for the user
-        } else {
-            $('#wrong-password').css('display', 'block');
-            console.log("not success");
-        }
+        api.loginUser($('#input1').val(), $('#input2').val(),
+            function (error, data) {
+                if (error) {
+                    console.log('login failed: ' + error);
+                    $('#wrong-password').css('display', 'block');
+                } else {
+                    alert("успішний вхід");
+                    console.log("success");
+                    // open profile page for the user
+                }
+            });
     });
-    $(document).mouseup(function (e) {
-        var logwind = $('.logwind');
-        if (logwind.has(e.target).length === 0) {
-            loginwindow.empty();
-            loginwindow.id = "pro-logsite";
-        }
-    });
+
+});
+$(document).mouseup(function (e) {
+    var logwind = $('.logwind');
+    if (logwind.has(e.target).length === 0) {
+        loginwindow.empty();
+        loginwindow.id = "pro-logsite";
+    }
 });
