@@ -2661,7 +2661,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/brain':
+    case '/offers-brain':
       api.getBList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getBList" + error);
@@ -2670,7 +2670,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/leftkidney':
+    case '/offers-leftkidney':
       api.getLKList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getLKList" + error);
@@ -2679,7 +2679,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/rightkidney':
+    case '/offers-rightkidney':
       api.getRKList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getRKList" + error);
@@ -2688,7 +2688,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/leftlung':
+    case '/offers-leftlung':
       api.getLLList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getUserList" + error);
@@ -2697,7 +2697,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/rightlung':
+    case '/offers-rightlung':
       api.getRLList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getUserList" + error);
@@ -2706,7 +2706,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/stomach':
+    case '/offers-stomach':
       api.getSList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getUserList" + error);
@@ -2715,7 +2715,7 @@ $(document).ready(function () {
         }
       });
       break;
-    case '/offers/liver':
+    case '/offers-liver':
       api.getLList(function (error, data) {
         if (error) {
           console.log("--not get user list in users.js.api.getUserList" + error);
