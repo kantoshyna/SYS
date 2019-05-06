@@ -57,18 +57,18 @@ $('#reg-form').on('submit', function (event) {
             email: $('#email-input').val(),
             password: $('#password-1').val(),
             nickname: $('#nick-input').val(),
-            icon: "./images/avs/avatar-js.png",
+            icon: "images/avs/anon.jpg",
             sex: $sex,
             country: $('#country').val(),
             bloodgroup: $('#bloodgroup').val(),
             resus: $resus,
-            brain: 1,
-            leftkidney: 1,
-            rightkidney: 1,
-            leftlung: 1,
+            brain: 0,
+            leftkidney: 0,
+            rightkidney: 0,
+            leftlung: 0,
             rightlung: 0,
-            stomach: 0,
-            liver: 1
+            stomach: 10,
+            liver: 0
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
@@ -78,8 +78,6 @@ $('#reg-form').on('submit', function (event) {
                 console.log("--Database success");
                 localStorage.setItem('user', JSON.stringify(data));
                 sessionStorage.setItem("id", "2");
-                $("#2").trigger('click');
-                $("#login").text("Вийти");
                 window.location.href = "/profile";
             }
         });

@@ -7,8 +7,7 @@ $('#profile-foto').click(function () {
     fotowind.id = "fotowind";
     fotowind.className = "logwind";
     fotowind.innerHTML = '<span><b style = "color: black; font-size:17px; display:block"> Фото профіля </b> ' +
-        '<button id="choose-file">Вибрати файл</button>' +
-        '<span id="newfoto">newfoto</span></span>  ' +
+        '<input type="file" id="choose-file">  ' +
         '<span id="profile-foto-edit"></span>';
 
 

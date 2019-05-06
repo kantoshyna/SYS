@@ -1,4 +1,3 @@
-var profiles = require('../data/profiles');
 var db = require('./db');
 var loggedUser;
 
@@ -10,6 +9,7 @@ exports.loadProfile = function (req, res) {
     var userattributes = req.body;
     db.setupUser(userattributes.email, userattributes.password, function (error, data) {
         if (error) {
+            console.log('error in api.js.loadProfile');
             res.send(error);
         } else {
             loggedUser = data;

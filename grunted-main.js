@@ -1881,9 +1881,9 @@ process.umask = function() { return 0; };
 
 var ejs = require('ejs');
 
-exports.oneUser = ejs.compile("<div class=\"oneuser\">\n  <div class=\"oneuserphoto\">\n    <img src=\"<%= user.icon %>\" alt=\"./images/avs/anon.jpg\" style=\"width: 100%; height: 100%\" />\n  </div>\n  <div style=\"width:72%\">\n    <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n    <hr>\n    <div style=\"display:flex\">\n      <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>");
+exports.oneUser = ejs.compile("<div class=\"oneuser\">\n  <div class=\"oneuserphoto\">\n    <img src=\"<%= user.icon %>\" alt=\"./images/avs/anon.jpg\" style=\"width: 100%; height: 100%\" />\n  </div>\n  <div style=\"width:72%\">\n    <a href=\"/id=<%= user.id %>\" style=\"margin: 9px 5px 0; display: inherit; color: #333\"><%= user.nickname %></a>\n    <hr>\n    <div style=\"display:flex\">\n      <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>");
 exports.mailWindow = ejs.compile("<div style=\"border-bottom: .5px grey dotted; height: 30px; padding: 4px\">Написати</div>\n<div><input type=\"text\" style=\"height: 80%; width: 100%\"></div>\n<div style=\"border-top: .5px grey dotted; height: 30px; padding: 4px\">\n    <button class=\"submit\">Надіслати</button>\n</div>");
-exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"><img src=\"<%=user.icon %>\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n<div class=\"col-*-12 \">\n    <h2><b>Статус органів:</b></h2>\n    <h4>Мозок:<p style=\"display: none\" id=\"statusOrgan11\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan12\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan13\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Ліва легеня:<p style=\"display: none\" id=\"statusOrgan21\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan22\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan23\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Права легеня:<p style=\"display: none\" id=\"statusOrgan31\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan32\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan33\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Печінка:<p style=\"display: none\" id=\"statusOrgan41\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan42\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan43\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Ліва нирка:<p style=\"display: none\" id=\"statusOrgan51\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan52\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan53\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Права нирка:<p style=\"display: none\" id=\"statusOrgan61\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan62\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan63\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Шлунок:<p style=\"display: none\" id=\"statusOrgan71\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan72\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan73\">\"Ціна\"</p>\n    </h4>\n    <br>\n    <button id=\"edit\">Редагувати</button>\n</div>");
+exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"><img src=\"<%=user.icon %>\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n<div class=\"col-*-12\" style=\"margin-bottom: 10rem\">\n    <h2><b>Статус органів:</b></h2>\n    <h4>Мозок:<p style=\"display: none\" id=\"statusOrgan11\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan12\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan13\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Ліва легеня:<p style=\"display: none\" id=\"statusOrgan21\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan22\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan23\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Права легеня:<p style=\"display: none\" id=\"statusOrgan31\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan32\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan33\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Печінка:<p style=\"display: none\" id=\"statusOrgan41\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan42\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan43\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Ліва нирка:<p style=\"display: none\" id=\"statusOrgan51\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan52\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan53\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Права нирка:<p style=\"display: none\" id=\"statusOrgan61\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan62\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan63\">\"Ціна\"</p>\n    </h4>\n    <hr>\n    <h4>Шлунок:<p style=\"display: none\" id=\"statusOrgan71\">Продано</p>\n        <p style=\"display: none\" id=\"statusOrgan72\">Не продається</p>\n        <p style=\"display: none\" id=\"statusOrgan73\">\"Ціна\"</p>\n    </h4>\n    <br>\n    <button id=\"edit\">Редагувати</button>\n</div>");
 },{"ejs":3}],9:[function(require,module,exports){
 var API_URL = "http://localhost:9080";
 
@@ -2019,18 +2019,18 @@ $('#reg-form').on('submit', function (event) {
             email: $('#email-input').val(),
             password: $('#password-1').val(),
             nickname: $('#nick-input').val(),
-            icon: "./images/avs/avatar-js.png",
+            icon: "images/avs/anon.jpg",
             sex: $sex,
             country: $('#country').val(),
             bloodgroup: $('#bloodgroup').val(),
             resus: $resus,
-            brain: 1,
-            leftkidney: 1,
-            rightkidney: 1,
-            leftlung: 1,
+            brain: 0,
+            leftkidney: 0,
+            rightkidney: 0,
+            leftlung: 0,
             rightlung: 0,
-            stomach: 0,
-            liver: 1
+            stomach: 10,
+            liver: 0
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
@@ -2040,8 +2040,6 @@ $('#reg-form').on('submit', function (event) {
                 console.log("--Database success");
                 localStorage.setItem('user', JSON.stringify(data));
                 sessionStorage.setItem("id", "2");
-                $("#2").trigger('click');
-                $("#login").text("Вийти");
                 window.location.href = "/profile";
             }
         });
@@ -2220,208 +2218,6 @@ $(function () {
         $("#twoFields7").css("display", "none");
     });
 });
-//var db = require("../scripts-backend/db");
-//var api = require('./api');
-/*
-var back = $("#pro-logsite");
-
-$("#edit").click(function () {
-    var editsite = document.createElement('div');
-    editsite.id = "editsite";
-    var editwind = document.createElement('div');
-    editwind.id = "editwind";
-    editwind.className = "logwind";
-    editwind.innerHTML = ' <div style="padding: 3% 5% 1%; border-bottom: 1px grey dotted">' +
-        ' <p style="color: black; font-size:17px"> <b> Редагування </b> ' +
-
-        '</p></div>' +
-        '<img src="images/instruction.png" class="img">' +
-        '<img src="images/contour.png" class="img" id="body"> ' +
-        '<div style="padding: 3%; border-top: 1px grey dotted">' +
-        '<button type="submit" class="submit">Зберегти</button>' +
-
-        '</div>';
-
-    editsite.append(editwind);
-    back.append(editsite);
-
-    // ============= adding organs ================
-    var image = document.createElement('img');
-    image.src = "../images/stomach1.png";
-    image.style.position = 'absolute';
-    image.style.top = '270px';
-    image.style.left = '291px';
-    image.style.zIndex = '4';
-    image.style.width = '50px';
-    $('#body').append(image);
-    // ============================================
-
-    $('#body').click(function (e) {
-        e.preventDefault();
-        if ($('#toolwindow')) {
-            $('#toolwindow').remove();
-        }
-        var $window = document.createElement('form');
-        var x = e.clientX,
-            y = e.clientY;
-        $window.innerHTML = ' <p style = "background-color: #30a2f0; color:  white; text-align: center; padding-top: 5px; padding-bottom: 5px" >' +
-            '<b> Зміна стану органа "" </b></p >' +
-            '<p> <input name = "condition" type = "radio" value = "notForSale" id = "notForSale" > Не продається </p>' +
-            '<p> <input name = "condition" type = "radio" value = "isForSale" id = "newBlock" > Продається </p>' +
-            '<div id = "twoFields" style = "display: none">' +
-            '<p> Введіть нову ціну </p> <p style = "padding-bottom: 30px"> <input> </p>' +
-            '</div>' +
-            '<p> <input name = "condition" type = "radio" value = "sold" id = "attention"> Продано </p>' +
-            '<p id = "attTexts" style = "color: red; display: none" > Ця дія невідворотня! </p>' +
-            '<p> <input type = "submit" value = "Зберегти" style = "margin-bottom: 0.8em"> </p>';
-        $window.style.left = x + 'px';
-        $window.style.top = y + 'px';
-        $window.id = "toolwindow";
-        $('#editwind').append($window);
-        /* $window.submit(function (e) {
-             e.preventDefault();
-             db.updateUser(ourUser);
-         });
-
-
-    });
-    $(document).mouseup(function (e) {
-        var logwind = $('.logwind');
-        if (logwind.has(e.target).length === 0) {
-            back.empty();
-            back.id = "pro-logsite";
-        }
-    });
-});
-
-$("#newBlock").on("click", function () {
-    $("#twoFields").css("display", "initial");
-    $("#attTexts").css("display", "none");
-});
-
-$("#notForSale").on("click", function () {
-    $("#twoFields").css("display", "none");
-    $("#attTexts").css("display", "none");
-});
-
-$("#attention").on("click", function () {
-    $("#twoFields").css("display", "none");
-    $("#attTexts").css("display", "initial");
-});
-/*
-var ourUser;
-if (ourUser.stomach > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/stomach1.png";
-    image.style.position = 'absolute';
-    image.style.top = '270px';
-    image.style.left = '291px';
-    $('#body').append(image);
-}
-if (ourUser.stomach == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/stomach2.png";
-    image.style.position = 'absolute';
-    image.style.top = '270px';
-    image.style.left = '291px';
-    $('#body').append(image);
-}
-if (ourUser.brain > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/brain1.png";
-    image.style.position = 'absolute';
-    image.style.top = '261px';
-    image.style.left = '56px';
-    $('#body').append(image);
-}
-if (ourUser.brain == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/brain2.png";
-    image.style.position = 'absolute';
-    image.style.top = '261px';
-    image.style.left = '56px';
-    $('#body').append(image);
-}
-if (ourUser.leftkidney > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/leftKidney1.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 309px';
-    image.style.left = '332px';
-    $('#body').append(image);
-}
-if (ourUser.leftkidney == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/leftKidney2.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 309px';
-    image.style.left = '332px';
-    $('#body').append(image);
-}
-if (ourUser.leftlung > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/leftLung1.png";
-    image.style.position = 'absolute';
-    image.style.top = '300px';
-    image.style.left = '180px';
-    $('#body').append(image);
-}
-if (ourUser.leftlung == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/leftLung2.png";
-    image.style.position = 'absolute';
-    image.style.top = '300px';
-    image.style.left = '180px';
-    $('#body').append(image);
-}
-if (ourUser.liver > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/liver1.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 236px';
-    image.style.left = '288px';
-    $('#body').append(image);
-}
-if (ourUser.liver == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/liver2.png";
-    image.style.position = 'absolute';
-    image.style.top = '236px';
-    image.style.left = '288px';
-    $('#body').append(image);
-}
-if (ourUser.rightkidney > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/rightKidney1.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 237px';
-    image.style.left = '331px';
-    $('#body').append(image);
-}
-if (ourUser.rightkidney == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/rightKidney2.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 237px';
-    image.style.left = '331px';
-    $('#body').append(image);
-}
-if (ourUser.rightlung > 0) {
-    var image = document.createElement('img');
-    image.src = "../images/rightLung1.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 247px';
-    image.style.left = '178px';
-    $('#body').append(image);
-}
-if (ourUser.rightlung == 0) {
-    var image = document.createElement('img');
-    image.src = "../images/rightLung2.png";
-    image.style.position = 'absolute';
-    image.style.top = ' 247px';
-    image.style.left = '178px';
-    $('#body').append(image);
-}*/
 },{}],12:[function(require,module,exports){
 $(function () {
 
@@ -2451,8 +2247,7 @@ $('#profile-foto').click(function () {
     fotowind.id = "fotowind";
     fotowind.className = "logwind";
     fotowind.innerHTML = '<span><b style = "color: black; font-size:17px; display:block"> Фото профіля </b> ' +
-        '<button id="choose-file">Вибрати файл</button>' +
-        '<span id="newfoto">newfoto</span></span>  ' +
+        '<input type="file" id="choose-file">  ' +
         '<span id="profile-foto-edit"></span>';
 
 
@@ -2468,10 +2263,10 @@ $('#profile-foto').click(function () {
 });
 },{}],14:[function(require,module,exports){
 var loginwindow = $("#pro-logsite");
-var api = require("./api"); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var api = require("./api");
 
 $("#login").click(function () {
-  if (!localStorage.getItem('user')) { //  UNCOMMENT WHEN YOU`RE READY
+  if (!localStorage.getItem('user')) {
     var logsite = document.createElement("div");
     logsite.id = "logsite";
     var logwind = document.createElement("form");
@@ -2505,16 +2300,15 @@ $("#login").click(function () {
           localStorage.setItem('kate', JSON.stringify(data));
           alert("успішний вхід");
           console.log("--success");
-          $("#login").text("Вийти");
-          //  require('./main').ifUser();
+          $("#2").trigger('click');
           window.location.href = "/profile";
         }
       });
     });
 
-  } else { //  UNCOMMENT WHEN YOU`RE READY
+  } else {
     localStorage.removeItem('user');
-    $("#login").text("Увійти");
+    $("#1").trigger('click');
     window.location.href = "/";
   }
 });

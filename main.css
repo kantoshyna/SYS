@@ -38,7 +38,7 @@
   box-shadow: 0 2px 4px 0 rgb(34, 36, 38), 0 2px 10px 0 rgba(37, 34, 38, 0.97);
   z-index: 2;
   background-color: white;
-  height: 225px;
+  height: auto;
   margin: 0 10%;
   min-width: 249px;
 }

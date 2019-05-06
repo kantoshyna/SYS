@@ -1,8 +1,8 @@
 var loginwindow = $("#pro-logsite");
-var api = require("./api"); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var api = require("./api");
 
 $("#login").click(function () {
-  if (!localStorage.getItem('user')) { //  UNCOMMENT WHEN YOU`RE READY
+  if (!localStorage.getItem('user')) {
     var logsite = document.createElement("div");
     logsite.id = "logsite";
     var logwind = document.createElement("form");
@@ -36,16 +36,15 @@ $("#login").click(function () {
           localStorage.setItem('kate', JSON.stringify(data));
           alert("успішний вхід");
           console.log("--success");
-          $("#login").text("Вийти");
-          //  require('./main').ifUser();
+          $("#2").trigger('click');
           window.location.href = "/profile";
         }
       });
     });
 
-  } else { //  UNCOMMENT WHEN YOU`RE READY
+  } else {
     localStorage.removeItem('user');
-    $("#login").text("Увійти");
+    $("#1").trigger('click');
     window.location.href = "/";
   }
 });

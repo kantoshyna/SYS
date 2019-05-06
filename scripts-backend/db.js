@@ -73,27 +73,17 @@ function saveUser(newUser, cb) {
 
 exports.saveUser = saveUser;
 
-exports.updateUser = function (newUser) {
-    // session
-};
-
-
 exports.setupUser = function (email, password, cb) {
     User.find({
         'email': email,
         'password': password
     }, function (error, arr) {
-        if (error) {
-            cb(new Error("--Error while setting up user in db.js.setupUser"));
+        if (error || arr.length == 0) {
+            cb(new Error("--Error while setting up user in db.js.setupUser. Such user doesn`t exist."));
         } else {
-            if (arr.length > 0) {
-                console.log('--user exists in db.js.setupUser');
-                cb(null, arr[0]);
-            } else {
-                cb(new Error("--Such user doesn`t exist in db.js.setupUser"));
-            }
+            console.log('--user exists in db.js.setupUser');
+            cb(null, arr[0]);
         }
-
     });
 };
 
