@@ -9,11 +9,13 @@ exports.loadProfile = function (req, res) {
     var userattributes = req.body;
     db.setupUser(userattributes.email, userattributes.password, function (error, data) {
         if (error) {
-            console.log('error in api.js.loadProfile');
-            res.send(error);
+            console.log('error in api.js.loadProfile: ' + error);
+            loggedUser = null;
+            res.status(400).send(new Error('error in api.js.loadProfile'));
         } else {
             loggedUser = data;
             console.log('--loggedUser equals ' + loggedUser + '\n--I see it in scripts-backend/api.js loadProfile');
+            res.send(data);
         }
     });
 };

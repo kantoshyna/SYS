@@ -2297,15 +2297,13 @@ $("#login").click(function () {
           console.log("--login failed: " + error);
           $("#wrong-password").css("display", "block");
         } else {
-          localStorage.setItem('kate', JSON.stringify(data));
-          alert("успішний вхід");
+          localStorage.setItem('user', JSON.stringify(data));
           console.log("--success");
           $("#2").trigger('click');
           window.location.href = "/profile";
         }
       });
     });
-
   } else {
     localStorage.removeItem('user');
     $("#1").trigger('click');
@@ -2335,6 +2333,12 @@ $(function () {
     require('./menu.js');
     require('./oneuserbuttonclick');
     require('./users.js');
+});
+
+$(document).ready(function () {
+    if (window.location.pathname == '/profile') {
+        ifUser();
+    }
 });
 
 function ifUser() {

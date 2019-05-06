@@ -15,6 +15,12 @@ $(function () {
     require('./users.js');
 });
 
+$(document).ready(function () {
+    if (window.location.pathname == '/profile') {
+        ifUser();
+    }
+});
+
 function ifUser() {
     if (!!localStorage.getItem('user')) {
         $('#2').css('display', 'block');
