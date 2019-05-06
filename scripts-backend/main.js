@@ -24,6 +24,13 @@ function configureEndpoints(app) {
     app.get('/offers/stomach', pages.offersStomach);
     app.get('/offers/liver', pages.offersLiver);
 
+    app.get('/api/brain', api.offersBrain);
+    app.get('/api/leftkidney', api.offersLeftKidney);
+    app.get('/api/rightkidney', api.offersRightKidney);
+    app.get('/api/leftlung', api.offersLeftLung);
+    app.get('/api/rightlung', api.offersRightLung);
+    app.get('/api/stomach', api.offersStomach);
+    app.get('/api/liver', api.offersLiver);
     app.get('/api/profiles', api.getProfiles);
     app.get('/api/loggedUser', api.getLoggedUser);
     app.post('/api/registration', api.createProfile);

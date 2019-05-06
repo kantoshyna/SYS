@@ -31,61 +31,38 @@ exports.logup = function (req, res) {
     });
 };
 
-var users = require('../scripts-frontend/users');
 exports.offersBrain = function (req, res) {
-    console.log('--offersbrain'); // = TESTER
-    var arr = db.topSales('brain');
     res.render('users-o', {
-        pageTitle: 'Мозок',
-        users: users,
-        userList: arr
+        pageTitle: 'Мозок'
     });
 };
 exports.offersLeftKidney = function (req, res) {
-    var arr = db.topSales('leftkidney');
     res.render('users-o', {
-        pageTitle: 'Ліва нирка',
-        users: users,
-        userList: arr
+        pageTitle: 'Ліва нирка'
     });
 };
 exports.offersRightKidney = function (req, res) {
-    var arr = db.topSales('rightkidney');
     res.render('users-o', {
-        pageTitle: 'Права нирка',
-        users: users,
-        userList: arr
+        pageTitle: 'Права нирка'
     });
 };
 exports.offersLeftLung = function (req, res) {
-    var arr = db.topSales('leftlung');
     res.render('users-o', {
-        pageTitle: 'Ліва легеня',
-        users: users,
-        userList: arr
+        pageTitle: 'Ліва легеня'
     });
 };
 exports.offersRightLung = function (req, res) {
-    var arr = db.topSales('rightlung');
     res.render('users-o', {
-        pageTitle: 'Права легеня',
-        users: users,
-        userList: arr
+        pageTitle: 'Права легеня'
     });
 };
 exports.offersStomach = function (req, res) {
-    var arr = db.topSales('stomach');
     res.render('users-o', {
-        pageTitle: 'Шлунок',
-        users: users,
-        userList: arr
+        pageTitle: 'Шлунок'
     });
 };
 exports.offersLiver = function (req, res) {
-    var arr = db.topSales('liver');
     res.render('users-o', {
-        pageTitle: 'Печінка',
-        users: users,
-        userList: arr
+        pageTitle: 'Печінка'
     });
 };

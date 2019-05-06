@@ -31,6 +31,27 @@ function backendPost(url, data, callback) {
 exports.getUserList = function (callback) {
     backendGet("/api/profiles", callback);
 };
+exports.getBList = function (callback) {
+    backendGet("/api/brain", callback);
+};
+exports.getLKList = function (callback) {
+    backendGet("/api/leftkidney", callback);
+};
+exports.getRKList = function (callback) {
+    backendGet("/api/rightkidney", callback);
+};
+exports.getLLList = function (callback) {
+    backendGet("/api/leftlung", callback);
+};
+exports.getRLList = function (callback) {
+    backendGet("/api/rightlung", callback);
+};
+exports.getSList = function (callback) {
+    backendGet("/api/stomach", callback);
+};
+exports.getLList = function (callback) {
+    backendGet("/api/liver", callback);
+};
 
 exports.loginUser = function (email, password, callback) {
     backendPost('/api/login', {
