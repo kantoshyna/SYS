@@ -33,7 +33,7 @@ $("#login").click(function () {
         console.log("--login failed: " + error);
         $("#wrong-password").css("display", "block");
       } else {
-        localStorage.setItem('kate', data);
+        localStorage.setItem('kate', JSON.stringify(data));
         alert("успішний вхід");
         console.log("--success");
         $("#login").val = "Вийти";

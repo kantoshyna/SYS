@@ -68,7 +68,7 @@ $('#reg-form').on('submit', function (event) {
             leftlung: 0,
             rightlung: 0,
             stomach: 0,
-            liver: 0,
+            liver: 0
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
@@ -76,8 +76,9 @@ $('#reg-form').on('submit', function (event) {
                 console.log("Database error" + error);
             } else {
                 console.log("Database success");
-                localStorage.setItem('user', data);
+                localStorage.setItem('user', JSON.stringify(newUser));
                 window.location.href = "/profile";
+                sessionStorage.setItem("id", "2");
                 $("#2").trigger('click');
             }
         });

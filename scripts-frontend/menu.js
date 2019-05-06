@@ -10,6 +10,7 @@ $(function () {
     }
 
     $('#logo').click(function () {
+        sessionStorage.setItem("id", "1");
         $("#1").trigger('click');
     });
 

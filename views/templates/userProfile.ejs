@@ -6,18 +6,19 @@ if (user.resus) {resus = "+";} else {resus = "-";}
 %>
 
 <div id="profile-head">
-    <span id="profile-foto"></span>
+    <span id="profile-foto"><img src="<%=user.icon %>"></span>
     <span id="profile-name"><%=user.nickname %></span>
     <div id="profile-country"><%=country %></div>
 </div>
 
 <div id="profile-body">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <!--  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
             <img src="../images/contour.png" width="70%">
             <br>
             <button id="edit">Редагувати</button>
-        </div>
+        </div>-->
+        <% include templates/organs.ejs %>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         Дані профіля

@@ -19,7 +19,7 @@ function ifUser() {
     if (!!localStorage.getItem('user')) {
         $('#2').css('display', 'block');
         var text = Templates.userProfile({
-            user: [localStorage.getItem('user')]
+            user: [JSON.parse(localStorage.getItem('user'))]
         });
         $('#usercontent').html(text);
         /*

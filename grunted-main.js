@@ -1881,9 +1881,9 @@ process.umask = function() { return 0; };
 
 var ejs = require('ejs');
 
-exports.oneUser = ejs.compile("<div class=\"oneuser\">\n  <div class=\"oneuserphoto\">\n    <img src=\"<%= user.icon %>\" alt=\"./images/anon.jpg\" style=\"width:100%\" />\n  </div>\n  <div style=\"width:72%\">\n    <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n    <hr>\n    <div style=\"display:flex\">\n      <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>");
+exports.oneUser = ejs.compile("<div class=\"oneuser\">\n  <div class=\"oneuserphoto\">\n    <img src=\"<%= user.icon %>\" alt=\"./images/avs/anon.jpg\" style=\"width: 100%; height: 100%\" />\n  </div>\n  <div style=\"width:72%\">\n    <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n    <hr>\n    <div style=\"display:flex\">\n      <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>");
 exports.mailWindow = ejs.compile("<div style=\"border-bottom: .5px grey dotted; height: 30px; padding: 4px\">Написати</div>\n<div><input type=\"text\" style=\"height: 80%; width: 100%\"></div>\n<div style=\"border-top: .5px grey dotted; height: 30px; padding: 4px\">\n    <button class=\"submit\">Надіслати</button>\n</div>");
-exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n\n<div id=\"profile-body\">\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 \">\n            <img src=\"../images/contour.png\" width=\"70%\">\n            <br>\n            <button id=\"edit\">Редагувати</button>\n        </div>\n    </div>\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        Дані профіля\n        <div style=\"border: 2px solid black\">\n            <ul>\n                <li id=\"gender\" style=\"text-align: left\">Стать: <%=sex %></li>\n                <li id=\"bloodtype\" style=\"text-align: left\">Група крові: <%=user.bloodgroop %></li>\n                <li id=\"resus\" style=\"text-align: left\">Резус-фактор: <%=resus %></li>\n            </ul>\n        </div>\n    </div>\n</div>");
+exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"><img src=\"<%=user.icon %>\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n\n<div id=\"profile-body\">\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        <!--  <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 \">\n            <img src=\"../images/contour.png\" width=\"70%\">\n            <br>\n            <button id=\"edit\">Редагувати</button>\n        </div>-->\n        <% include templates/organs.ejs %>\n    </div>\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        Дані профіля\n        <div style=\"border: 2px solid black\">\n            <ul>\n                <li id=\"gender\" style=\"text-align: left\">Стать: <%=sex %></li>\n                <li id=\"bloodtype\" style=\"text-align: left\">Група крові: <%=user.bloodgroop %></li>\n                <li id=\"resus\" style=\"text-align: left\">Резус-фактор: <%=resus %></li>\n            </ul>\n        </div>\n    </div>\n</div>");
 },{"ejs":3}],9:[function(require,module,exports){
 var API_URL = "http://localhost:9080";
 
@@ -2009,7 +2009,7 @@ $('#reg-form').on('submit', function (event) {
             leftlung: 0,
             rightlung: 0,
             stomach: 0,
-            liver: 0,
+            liver: 0
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
@@ -2017,8 +2017,9 @@ $('#reg-form').on('submit', function (event) {
                 console.log("Database error" + error);
             } else {
                 console.log("Database success");
-                localStorage.setItem('user', data);
+                localStorage.setItem('user', JSON.stringify(newUser));
                 window.location.href = "/profile";
+                sessionStorage.setItem("id", "2");
                 $("#2").trigger('click');
             }
         });
@@ -2320,7 +2321,7 @@ $("#login").click(function () {
         console.log("--login failed: " + error);
         $("#wrong-password").css("display", "block");
       } else {
-        localStorage.setItem('kate', data);
+        localStorage.setItem('kate', JSON.stringify(data));
         alert("успішний вхід");
         console.log("--success");
         $("#login").val = "Вийти";
@@ -2365,7 +2366,7 @@ function ifUser() {
     if (!!localStorage.getItem('user')) {
         $('#2').css('display', 'block');
         var text = Templates.userProfile({
-            user: [localStorage.getItem('user')]
+            user: [JSON.parse(localStorage.getItem('user'))]
         });
         $('#usercontent').html(text);
         /*
@@ -2405,6 +2406,7 @@ $(function () {
     }
 
     $('#logo').click(function () {
+        sessionStorage.setItem("id", "1");
         $("#1").trigger('click');
     });
 
