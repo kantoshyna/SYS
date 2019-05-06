@@ -1,4 +1,4 @@
-var API_URL = "http://localhost:9090";
+var API_URL = "http://localhost:9080";
 
 function backendGet(url, callback) {
     $.ajax({
@@ -29,10 +29,46 @@ function backendPost(url, data, callback) {
 }
 
 exports.getUserList = function (callback) {
-    backendGet("/api/profiles/", callback);
+    backendGet("/api/profiles", callback);
+};
+exports.getBList = function (callback) {
+    backendGet("/api/brain", callback);
+};
+exports.getLKList = function (callback) {
+    backendGet("/api/leftkidney", callback);
+};
+exports.getRKList = function (callback) {
+    backendGet("/api/rightkidney", callback);
+};
+exports.getLLList = function (callback) {
+    backendGet("/api/leftlung", callback);
+};
+exports.getRLList = function (callback) {
+    backendGet("/api/rightlung", callback);
+};
+exports.getSList = function (callback) {
+    backendGet("/api/stomach", callback);
+};
+exports.getLList = function (callback) {
+    backendGet("/api/liver", callback);
 };
 
-/*
-exports.createOrder = function (order_info, callback) {
-    backendPost("/api/create-order/", order_info, callback);
-};*/
+exports.loginUser = function (email, password, callback) {
+    backendPost('/api/login', {
+        email: [email],
+        password: [password]
+    }, function (error, data) {
+        if (error) {
+            console.log('--Error in loginUser: ' + error);
+            callback(error);
+        } else {
+            backendGet('/api/loggedUser', function (error, data) {
+                callback(null, data);
+            });
+        }
+    });
+};
+
+exports.saveChangedOrgan = function (organ, price) {
+    //
+};

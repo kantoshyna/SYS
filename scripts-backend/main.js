@@ -12,18 +12,29 @@ function configureEndpoints(app) {
     app.get('/', pages.mainPage);
 
     app.get('/profile', pages.profilePage);
-    app.get('/news', pages.newsPage);
     app.get('/offers', pages.offersPage);
-    app.get('/contacts', pages.contactsPage);
-    app.get('/map', pages.mapPage);
     app.get('/users', pages.usersPage);
-    app.get('/other', pages.otherPage);
     app.get('/registration', pages.logup);
 
+    app.get('/offers/brain', pages.offersBrain);
+    app.get('/offers/leftkidney', pages.offersLeftKidney);
+    app.get('/offers/rightkidney', pages.offersRightKidney);
+    app.get('/offers/leftlung', pages.offersLeftLung);
+    app.get('/offers/rightlung', pages.offersRightLung);
+    app.get('/offers/stomach', pages.offersStomach);
+    app.get('/offers/liver', pages.offersLiver);
 
+    app.get('/api/brain', api.offersBrain);
+    app.get('/api/leftkidney', api.offersLeftKidney);
+    app.get('/api/rightkidney', api.offersRightKidney);
+    app.get('/api/leftlung', api.offersLeftLung);
+    app.get('/api/rightlung', api.offersRightLung);
+    app.get('/api/stomach', api.offersStomach);
+    app.get('/api/liver', api.offersLiver);
     app.get('/api/profiles', api.getProfiles);
+    app.get('/api/loggedUser', api.getLoggedUser);
     app.post('/api/registration', api.createProfile);
-    //  app.post('/api/login', api.loadProfile);
+    app.post('/api/login', api.loadProfile);
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки вище
     app.use(express.static(path.join(__dirname, '../')));

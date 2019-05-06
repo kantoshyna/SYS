@@ -1,0 +1,42 @@
+<div class="oneuser">
+  <div class="oneuserphoto">
+    <img src="<%= user.icon %>" alt="./images/avs/anon.jpg" style="width: 100%; height: 100%" />
+  </div>
+  <div style="width:72%">
+    <p style="margin-left: 5px;"><%= user.nickname %></p>
+    <hr>
+    <div style="display:flex">
+      <% var image; if (user.brain > 0) { image =
+        "../images/brainOfPanel1.png" } else { image =
+        "../images/brainOfPanel2.png"; if (user.brain < 0) {
+        image.css('visibility', 'hidden' ); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+      <% if (user.rightlung > 0) { image = "../images/rightLungOfPanel1.png" }
+        else { image = "../images/rightLungOfPanel2.png"; if (user.rightlung <
+        0) { image.css('visibility', 'hidden' ); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+      <% if (user.leftlung > 0) { image = "../images/leftLungOfPanel1.png" }
+        else { image = "../images/leftLungOfPanel2.png"; if (user.leftlung < 0)
+        { image.css('visibility', 'hidden' ); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+      <% if (user.rightkidney > 0) { image =
+        "../images/rightKidneyOfPanel1.png" } else { image =
+        "../images/rightKidneyOfPanel2.png"; if (user.rightkidney < 0) {
+        image.css('visibility', 'hidden' ); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+      <% if (user.leftkidney > 0) { image = "../images/leftKidneyOfPanel1.png"
+        } else { image = "../images/leftKidneyOfPanel2.png"; if (user.leftkidney
+        < 0) { image.css('visibility', 'hidden' ); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+      <% if (user.liver > 0) { image = "../images/liverOfPanel1.png" } else {
+        image = "../images/liverOfPanel2.png"; if (user.liver < 0) {
+        image.css('visibility', 'hidden' ); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+      <% if (user.stomach > 0) { image = "../images/stomachOfPanel1.png" }
+        else { image = "../images/stomachOfPanel2.png"; if (user.stomach < 0) {
+        image.css('visibility', 'hidden'); } } %>
+      <img src="<%=image%>" style="width:12.5%; height: 12.5%;" />
+    </div>
+  </div>
+  <button class="oneuserbutton">Написати</button>
+</div>
