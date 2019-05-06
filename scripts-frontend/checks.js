@@ -73,14 +73,14 @@ $('#reg-form').on('submit', function (event) {
 
         backendPost('/api/registration', newUser, function (error, data) {
             if (error) {
-                console.log("Database error" + error);
+                console.log("--Database error" + error);
             } else {
-                console.log("Database success");
-                localStorage.setItem('user', JSON.stringify(newUser));
-                window.location.href = "/profile";
+                console.log("--Database success");
+                localStorage.setItem('user', JSON.stringify(data));
                 sessionStorage.setItem("id", "2");
                 $("#2").trigger('click');
-                $("#login").attr('value', "Вийти");
+                $("#login").text("Вийти");
+                window.location.href = "/profile";
             }
         });
     }

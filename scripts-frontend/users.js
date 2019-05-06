@@ -16,16 +16,14 @@ function showUserList(list) {
   list.forEach(showOneUser);
 }
 
-function initialiseUsers(data) {
-  showUserList(data);
-}
-
 $(document).ready(function () {
   api.getUserList(function (error, data) {
     if (error) {
       console.log("not get user list in users.js.api.getUserList" + error);
     } else {
-      initialiseUsers(data);
+      showUserList(data);
     }
   });
 });
+
+exports.showUserList = showUserList;

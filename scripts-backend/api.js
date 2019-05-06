@@ -10,7 +10,7 @@ exports.loadProfile = function (req, res) {
     var userattributes = req.body;
     db.setupUser(userattributes.email, userattributes.password, function (error, data) {
         if (error) {
-            console.log(error);
+            res.send(error);
         } else {
             loggedUser = data;
             console.log('--loggedUser equals ' + loggedUser + '\n--I see it in scripts-backend/api.js loadProfile');

@@ -36,7 +36,8 @@ $("#login").click(function () {
           localStorage.setItem('kate', JSON.stringify(data));
           alert("успішний вхід");
           console.log("--success");
-          $("#login").attr('value', "Вийти");
+          $("#login").text("Вийти");
+          //  require('./main').ifUser();
           window.location.href = "/profile";
         }
       });
@@ -44,7 +45,7 @@ $("#login").click(function () {
 
   } else { //  UNCOMMENT WHEN YOU`RE READY
     localStorage.removeItem('user');
-    $("#login").attr('value', "Увійти");
+    $("#login").text("Увійти");
     window.location.href = "/";
   }
 });

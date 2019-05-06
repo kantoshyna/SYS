@@ -4,13 +4,13 @@ $(function () {
     ifUser();
     require("../complexify/jquery.complexify");
     require('./api.js');
+    require('./Templates.js');
     require('./checks.js');
     require('./edit-profile.js');
     require('./editWindow.js');
     require('./fotowindow.js');
     require('./loginwindow.js');
     require('./menu.js');
-    require('./Templates.js');
     require('./oneuserbuttonclick');
     require('./users.js');
 });

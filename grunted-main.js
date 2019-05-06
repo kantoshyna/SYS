@@ -2014,14 +2014,14 @@ $('#reg-form').on('submit', function (event) {
 
         backendPost('/api/registration', newUser, function (error, data) {
             if (error) {
-                console.log("Database error" + error);
+                console.log("--Database error" + error);
             } else {
-                console.log("Database success");
-                localStorage.setItem('user', JSON.stringify(newUser));
-                window.location.href = "/profile";
+                console.log("--Database success");
+                localStorage.setItem('user', JSON.stringify(data));
                 sessionStorage.setItem("id", "2");
                 $("#2").trigger('click');
-                $("#login").attr('value', "Вийти");
+                $("#login").text("Вийти");
+                window.location.href = "/profile";
             }
         });
     }
@@ -2484,7 +2484,8 @@ $("#login").click(function () {
           localStorage.setItem('kate', JSON.stringify(data));
           alert("успішний вхід");
           console.log("--success");
-          $("#login").attr('value', "Вийти");
+          $("#login").text("Вийти");
+          //  require('./main').ifUser();
           window.location.href = "/profile";
         }
       });
@@ -2492,7 +2493,7 @@ $("#login").click(function () {
 
   } else { //  UNCOMMENT WHEN YOU`RE READY
     localStorage.removeItem('user');
-    $("#login").attr('value', "Увійти");
+    $("#login").text("Увійти");
     window.location.href = "/";
   }
 });
@@ -2510,13 +2511,13 @@ $(function () {
     ifUser();
     require("../complexify/jquery.complexify");
     require('./api.js');
+    require('./Templates.js');
     require('./checks.js');
     require('./edit-profile.js');
     require('./editWindow.js');
     require('./fotowindow.js');
     require('./loginwindow.js');
     require('./menu.js');
-    require('./Templates.js');
     require('./oneuserbuttonclick');
     require('./users.js');
 });
@@ -2575,28 +2576,30 @@ $(function () {
 
 });
 },{}],17:[function(require,module,exports){
-var templates = require('./Templates');
+$('.oneuserbutton').click(function () {
 
-$('.oneuserbutton').on('click', function () {
-    /*   if (!!localStorage.getItem('user')) {
-           alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
-           console.log('preserved writing by not signed up person');
-       } else {*/
-    var mailwindow = $("#pro-logsite");
-    var mailsite = document.createElement('div');
-    mailsite.id = "logsite";
-    var mailwind = document.createElement('form');
-    mailwind.id = "mailwind";
-    mailwind.className = "logwind";
-    mailwind.innerHTML = '<div style="border-bottom: .5px grey dotted; height: 30px; padding: 4px">Написати</div>' +
-        '<div><input type="text" style="height: 80%; width: 100%"></div>' +
-        '<div style="border-top: .5px grey dotted; height: 30px; padding: 4px">' +
-        '<button class="submit">Надіслати</button>' +
-        '</div>';
-    mailsite.append(mailwind);
-    mailwindow.append(mailsite);
-    console.log('mailwindow appeared');
-    //}
+    // this function doesn`t work at all
+    $('.oneuserbutton').css('background-color', 'red');
+
+    if (!!localStorage.getItem('user')) {
+        alert("Ви не можете писати повідомлення користувачу, доки не авторизуєтесь.");
+        console.log('preserved writing by not signed up person');
+    } else {
+        var mailwindow = $("#pro-logsite");
+        var mailsite = document.createElement('div');
+        mailsite.id = "logsite";
+        var mailwind = document.createElement('form');
+        mailwind.id = "mailwind";
+        mailwind.className = "logwind";
+        mailwind.innerHTML = '<div style="border-bottom: .5px grey dotted; height: 30px; padding: 4px">Написати</div>' +
+            '<div><input type="text" style="height: 80%; width: 100%"></div>' +
+            '<div style="border-top: .5px grey dotted; height: 30px; padding: 4px">' +
+            '<button class="submit">Надіслати</button>' +
+            '</div>';
+        mailsite.append(mailwind);
+        mailwindow.append(mailsite);
+        console.log('mailwindow appeared');
+    }
     $(document).mouseup(function (e) {
         var logwind = $('#mailwind');
         if (logwind.has(e.target).length === 0) {
@@ -2605,7 +2608,7 @@ $('.oneuserbutton').on('click', function () {
         }
     });
 });
-},{"./Templates":8}],18:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var Templates = require("./Templates");
 var api = require("./api");
 
@@ -2624,17 +2627,15 @@ function showUserList(list) {
   list.forEach(showOneUser);
 }
 
-function initialiseUsers(data) {
-  showUserList(data);
-}
-
 $(document).ready(function () {
   api.getUserList(function (error, data) {
     if (error) {
       console.log("not get user list in users.js.api.getUserList" + error);
     } else {
-      initialiseUsers(data);
+      showUserList(data);
     }
   });
 });
+
+exports.showUserList = showUserList;
 },{"./Templates":8,"./api":9}]},{},[15]);

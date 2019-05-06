@@ -16,6 +16,13 @@ function configureEndpoints(app) {
     app.get('/users', pages.usersPage);
     app.get('/registration', pages.logup);
 
+    app.get('/offers/brain', pages.offersBrain);
+    app.get('/offers/leftkidney', pages.offersLeftKidney);
+    app.get('/offers/rightkidney', pages.offersRightKidney);
+    app.get('/offers/leftlung', pages.offersLeftLung);
+    app.get('/offers/rightlung', pages.offersRightLung);
+    app.get('/offers/stomach', pages.offersStomach);
+    app.get('/offers/liver', pages.offersLiver);
 
     app.get('/api/profiles', api.getProfiles);
     app.get('/api/loggedUser', api.getLoggedUser);
