@@ -1883,7 +1883,7 @@ var ejs = require('ejs');
 
 exports.oneUser = ejs.compile("<div class=\"oneuser\">\n  <div class=\"oneuserphoto\">\n    <img src=\"<%= user.icon %>\" alt=\"./images/avs/anon.jpg\" style=\"width: 100%; height: 100%\" />\n  </div>\n  <div style=\"width:72%\">\n    <p style=\"margin-left: 5px;\"><%= user.nickname %></p>\n    <hr>\n    <div style=\"display:flex\">\n      <% var image; if (user.brain > 0) { image =\n        \"../images/brainOfPanel1.png\" } else { image =\n        \"../images/brainOfPanel2.png\"; if (user.brain < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightlung > 0) { image = \"../images/rightLungOfPanel1.png\" }\n        else { image = \"../images/rightLungOfPanel2.png\"; if (user.rightlung <\n        0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftlung > 0) { image = \"../images/leftLungOfPanel1.png\" }\n        else { image = \"../images/leftLungOfPanel2.png\"; if (user.leftlung < 0)\n        { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.rightkidney > 0) { image =\n        \"../images/rightKidneyOfPanel1.png\" } else { image =\n        \"../images/rightKidneyOfPanel2.png\"; if (user.rightkidney < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.leftkidney > 0) { image = \"../images/leftKidneyOfPanel1.png\"\n        } else { image = \"../images/leftKidneyOfPanel2.png\"; if (user.leftkidney\n        < 0) { image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.liver > 0) { image = \"../images/liverOfPanel1.png\" } else {\n        image = \"../images/liverOfPanel2.png\"; if (user.liver < 0) {\n        image.css('visibility', 'hidden' ); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n      <% if (user.stomach > 0) { image = \"../images/stomachOfPanel1.png\" }\n        else { image = \"../images/stomachOfPanel2.png\"; if (user.stomach < 0) {\n        image.css('visibility', 'hidden'); } } %>\n      <img src=\"<%=image%>\" style=\"width:12.5%; height: 12.5%;\" />\n    </div>\n  </div>\n  <button class=\"oneuserbutton\">Написати</button>\n</div>");
 exports.mailWindow = ejs.compile("<div style=\"border-bottom: .5px grey dotted; height: 30px; padding: 4px\">Написати</div>\n<div><input type=\"text\" style=\"height: 80%; width: 100%\"></div>\n<div style=\"border-top: .5px grey dotted; height: 30px; padding: 4px\">\n    <button class=\"submit\">Надіслати</button>\n</div>");
-exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"><img src=\"<%=user.icon %>\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n\n<div id=\"profile-body\">\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        <!--  <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 \">\n            <img src=\"../images/contour.png\" width=\"70%\">\n            <br>\n            <button id=\"edit\">Редагувати</button>\n        </div>-->\n        <% include templates/organs.ejs %>\n    </div>\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        Дані профіля\n        <div style=\"border: 2px solid black\">\n            <ul>\n                <li id=\"gender\" style=\"text-align: left\">Стать: <%=sex %></li>\n                <li id=\"bloodtype\" style=\"text-align: left\">Група крові: <%=user.bloodgroop %></li>\n                <li id=\"resus\" style=\"text-align: left\">Резус-фактор: <%=resus %></li>\n            </ul>\n        </div>\n    </div>\n</div>");
+exports.userProfile = ejs.compile("<%\nvar sex, country, resus;\nif (user.sex) { sex = \"Чоловік\";} else { sex = \"Жінка\";}\nif (user.profile-country == \"Не вибрано\") {country = \"\";} else {country = user.profile-country;}\nif (user.resus) {resus = \"+\";} else {resus = \"-\";}\n%>\n\n<div id=\"profile-head\">\n    <span id=\"profile-foto\"><img src=\"<%=user.icon %>\"></span>\n    <span id=\"profile-name\"><%=user.nickname %></span>\n    <div id=\"profile-country\"><%=country %></div>\n</div>\n\n<div id=\"profile-body\">\n\n    <div class=\"col-*-12 \">\n        <div id=\"body\"><img src=\"../images/contour.png\" width=\"100%\"></div>\n        <br>\n        <button id=\"edit\">Редагувати</button>\n    </div>\n    <% if (user.stomach > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/stomach1.png\";\n    image.style.position = 'absolute';\n    image.style.top = '270px';\n    image.style.left = '291px';\n    $('#body').append(image);\n    }\n    if (user.stomach == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/stomach2.png\";\n    image.style.position = 'absolute';\n    image.style.top = '270px';\n    image.style.left = '291px';\n    $('#body').append(image);\n    }\n    if (user.brain > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/brain1.png\";\n    image.style.position = 'absolute';\n    image.style.top = '261px';\n    image.style.left = '56px';\n    $('#body').append(image);\n    }\n    if (user.brain == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/brain2.png\";\n    image.style.position = 'absolute';\n    image.style.top = '261px';\n    image.style.left = '56px';\n    $('#body').append(image);\n    }\n    if (user.leftkidney > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/leftKidney1.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 309px';\n    image.style.left = '332px';\n    $('#body').append(image);\n    }\n    if (user.leftkidney == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/leftKidney2.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 309px';\n    image.style.left = '332px';\n    $('#body').append(image);\n    }\n    if (user.leftlung > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/leftLung1.png\";\n    image.style.position = 'absolute';\n    image.style.top = '300px';\n    image.style.left = '180px';\n    $('#body').append(image);\n    }\n    if (user.leftlung == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/leftLung2.png\";\n    image.style.position = 'absolute';\n    image.style.top = '300px';\n    image.style.left = '180px';\n    $('#body').append(image);\n    }\n    if (user.liver > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/liver1.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 236px';\n    image.style.left = '288px';\n    $('#body').append(image);\n    }\n    if (user.liver == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/liver2.png\";\n    image.style.position = 'absolute';\n    image.style.top = '236px';\n    image.style.left = '288px';\n    $('#body').append(image);\n    }\n    if (user.rightkidney > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/rightKidney1.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 237px';\n    image.style.left = '331px';\n    $('#body').append(image);\n    }\n    if (user.rightkidney == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/rightKidney2.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 237px';\n    image.style.left = '331px';\n    $('#body').append(image);\n    }\n    if (user.rightlung > 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/rightLung1.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 247px';\n    image.style.left = '178px';\n    $('#body').append(image);\n    }\n    if (user.rightlung == 0) {\n    var image = document.createElement('img');\n    image.src = \"../images/rightLung2.png\";\n    image.style.position = 'absolute';\n    image.style.top = ' 247px';\n    image.style.left = '178px';\n    $('#body').append(image);\n    } %>\n\n    <form id=\"editform\">\n        <p style=\"background-color:#30a2f0; color:white; text-align: center; padding-top: 5px; padding-bottom: 5px\">\n            <b>Редагування</b></p>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ1\" id=\"organ1\"> Мозок</p>\n        <div id=\"organRed1\" style=\"display: none;\">\n            <p style=\"padding-left: 20px\"><input name=\"organ1\" type=\"radio\" value=\"notForSale\" id=\"notForSale1\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ1\" type=\"radio\" value=\"forSale\" id=\"forSale1\">\n                Продається</p>\n            <div id=\"twoFields1\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ1\" type=\"radio\" value=\"sold\" id=\"sold1\"> Продано</p>\n        </div>\n        <hr>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ2\" id=\"organ2\"> Ліва легеня</p>\n        <div id=\"organRed2\" style=\"display: none\">\n            <p style=\"padding-left: 20px\"><input name=\"organ2\" type=\"radio\" value=\"notForSale\" id=\"notForSale2\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ2\" type=\"radio\" value=\"forSale\" id=\"forSale2\">\n                Продається</p>\n            <div id=\"twoFields2\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ2\" type=\"radio\" value=\"sold\" id=\"sold2\"> Продано</p>\n        </div>\n        <hr>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ3\" id=\"organ3\"> Права легеня</p>\n        <div id=\"organRed3\" style=\"display: none\">\n            <p style=\"padding-left: 20px\"><input name=\"organ3\" type=\"radio\" value=\"notForSale\" id=\"notForSale3\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ3\" type=\"radio\" value=\"forSale\" id=\"forSale3\">\n                Продається</p>\n            <div id=\"twoFields3\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ3\" type=\"radio\" value=\"sold\" id=\"sold3\"> Продано</p>\n        </div>\n        <hr>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ4\" id=\"organ4\"> Печінка</p>\n        <div id=\"organRed4\" style=\"display: none\">\n            <p style=\"padding-left: 20px\"><input name=\"organ4\" type=\"radio\" value=\"notForSale\" id=\"notForSale4\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ4\" type=\"radio\" value=\"forSale\" id=\"forSale4\">\n                Продається</p>\n            <div id=\"twoFields4\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ4\" type=\"radio\" value=\"sold\" id=\"sold4\"> Продано</p>\n        </div>\n        <hr>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ5\" id=\"organ5\"> Ліва нирка</p>\n        <div id=\"organRed5\" style=\"display: none\">\n            <p style=\"padding-left: 20px\"><input name=\"organ5\" type=\"radio\" value=\"notForSale\" id=\"notForSale5\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ5\" type=\"radio\" value=\"forSale\" id=\"forSale5\">\n                Продається</p>\n            <div id=\"twoFields5\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ5\" type=\"radio\" value=\"sold\" id=\"sold5\"> Продано</p>\n        </div>\n        <hr>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ6\" id=\"organ6\"> Права нирка</p>\n        <div id=\"organRed6\" style=\"display: none\">\n            <p style=\"padding-left: 20px\"><input name=\"organ6\" type=\"radio\" value=\"notForSale\" id=\"notForSale6\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ6\" type=\"radio\" value=\"forSale\" id=\"forSale6\">\n                Продається</p>\n            <div id=\"twoFields6\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ6\" type=\"radio\" value=\"sold\" id=\"sold6\"> Продано</p>\n        </div>\n        <hr>\n        <p><input name=\"organ\" type=\"radio\" value=\"organ7\" id=\"organ7\"> Шлунок</p>\n        <div id=\"organRed7\" style=\"display: none\">\n            <p style=\"padding-left: 20px\"><input name=\"organ7\" type=\"radio\" value=\"notForSale\" id=\"notForSale7\"> Не\n                продається\n            </p>\n            <p style=\"padding-left: 20px\"><input name=\"organ7\" type=\"radio\" value=\"forSale\" id=\"forSale7\">\n                Продається</p>\n            <div id=\"twoFields7\" style=\"display: none; padding-left: 30px\">\n                <p>Введіть ціну</p>\n                <p style=\"margin-left: 5px\"><input></p>\n            </div>\n            <p style=\"padding-left: 20px\"><input name=\"organ7\" type=\"radio\" value=\"sold\" id=\"sold7\"> Продано</p>\n        </div>\n        <hr>\n        <p><input type=\"submit\" value=\"Зберегти\"></p>\n    </form>\n\n    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 \">\n        Дані профіля\n        <div style=\"border: 2px solid black\">\n            <ul>\n                <li id=\"gender\" style=\"text-align: left\">Стать: <%=sex %></li>\n                <li id=\"bloodtype\" style=\"text-align: left\">Група крові: <%=user.bloodgroop %></li>\n                <li id=\"resus\" style=\"text-align: left\">Резус-фактор: <%=resus %></li>\n            </ul>\n        </div>\n    </div>\n</div>");
 },{"ejs":3}],9:[function(require,module,exports){
 var API_URL = "http://localhost:9080";
 
@@ -1998,18 +1998,18 @@ $('#reg-form').on('submit', function (event) {
             email: $('#email-input').val(),
             password: $('#password-1').val(),
             nickname: $('#nick-input').val(),
-            icon: "./images/anon.jpg",
+            icon: "./images/avs/avatar-js.png",
             sex: $sex,
             country: $('#country').val(),
             bloodgroup: $('#bloodgroup').val(),
             resus: $resus,
-            brain: 0,
-            leftkidney: 0,
-            rightkidney: 0,
-            leftlung: 0,
+            brain: 1,
+            leftkidney: 1,
+            rightkidney: 1,
+            leftlung: 1,
             rightlung: 0,
             stomach: 0,
-            liver: 0
+            liver: 1
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
@@ -2021,6 +2021,7 @@ $('#reg-form').on('submit', function (event) {
                 window.location.href = "/profile";
                 sessionStorage.setItem("id", "2");
                 $("#2").trigger('click');
+                $("#login").attr('value', "Вийти");
             }
         });
     }
@@ -2042,8 +2043,165 @@ function backendPost(url, data, callback) {
     });
 }
 },{}],11:[function(require,module,exports){
+$(function () {
+
+    $("#organ1").on("click", function () {
+        $("#organRed1").css("display", "initial");
+        $("#organRed2").css("display", "none");
+        $("#organRed3").css("display", "none");
+        $("#organRed4").css("display", "none");
+        $("#organRed5").css("display", "none");
+        $("#organRed6").css("display", "none");
+        $("#organRed7").css("display", "none");
+    });
+
+    $("#organ2").on("click", function () {
+        $("#organRed2").css("display", "initial");
+        $("#organRed1").css("display", "none");
+        $("#organRed3").css("display", "none");
+        $("#organRed4").css("display", "none");
+        $("#organRed5").css("display", "none");
+        $("#organRed6").css("display", "none");
+        $("#organRed7").css("display", "none");
+    });
+
+    $("#organ3").on("click", function () {
+        $("#organRed3").css("display", "initial");
+        $("#organRed2").css("display", "none");
+        $("#organRed1").css("display", "none");
+        $("#organRed4").css("display", "none");
+        $("#organRed5").css("display", "none");
+        $("#organRed6").css("display", "none");
+        $("#organRed7").css("display", "none");
+    });
+
+    $("#organ4").on("click", function () {
+        $("#organRed4").css("display", "initial");
+        $("#organRed2").css("display", "none");
+        $("#organRed3").css("display", "none");
+        $("#organRed1").css("display", "none");
+        $("#organRed5").css("display", "none");
+        $("#organRed6").css("display", "none");
+        $("#organRed7").css("display", "none");
+    });
+
+    $("#organ5").on("click", function () {
+        $("#organRed5").css("display", "initial");
+        $("#organRed2").css("display", "none");
+        $("#organRed3").css("display", "none");
+        $("#organRed4").css("display", "none");
+        $("#organRed1").css("display", "none");
+        $("#organRed6").css("display", "none");
+        $("#organRed7").css("display", "none");
+    });
+
+    $("#organ6").on("click", function () {
+        $("#organRed6").css("display", "initial");
+        $("#organRed2").css("display", "none");
+        $("#organRed3").css("display", "none");
+        $("#organRed4").css("display", "none");
+        $("#organRed5").css("display", "none");
+        $("#organRed1").css("display", "none");
+        $("#organRed7").css("display", "none");
+    });
+
+    $("#organ7").on("click", function () {
+        $("#organRed7").css("display", "initial");
+        $("#organRed2").css("display", "none");
+        $("#organRed3").css("display", "none");
+        $("#organRed4").css("display", "none");
+        $("#organRed5").css("display", "none");
+        $("#organRed6").css("display", "none");
+        $("#organRed1").css("display", "none");
+    });
+
+    $("#notForSale1").on("click", function () {
+        $("#twoFields1").css("display", "none");
+    });
+
+    $("#forSale1").on("click", function () {
+        $("#twoFields1").css("display", "initial");
+    });
+
+    $("#sold1").on("click", function () {
+        $("#twoFields1").css("display", "none");
+    });
+
+    $("#notForSale2").on("click", function () {
+        $("#twoFields2").css("display", "none");
+    });
+
+    $("#forSale2").on("click", function () {
+        $("#twoFields2").css("display", "initial");
+    });
+
+    $("#sold2").on("click", function () {
+        $("#twoFields2").css("display", "none");
+    });
+
+    $("#notForSale3").on("click", function () {
+        $("#twoFields3").css("display", "none");
+    });
+
+    $("#forSale3").on("click", function () {
+        $("#twoFields3").css("display", "initial");
+    });
+
+    $("#sold3").on("click", function () {
+        $("#twoFields3").css("display", "none");
+    });
+
+    $("#notForSale4").on("click", function () {
+        $("#twoFields4").css("display", "none");
+    });
+
+    $("#forSale4").on("click", function () {
+        $("#twoFields4").css("display", "initial");
+    });
+
+    $("#sold4").on("click", function () {
+        $("#twoFields4").css("display", "none");
+    });
+
+    $("#notForSale5").on("click", function () {
+        $("#twoFields5").css("display", "none");
+    });
+
+    $("#forSale5").on("click", function () {
+        $("#twoFields5").css("display", "initial");
+    });
+
+    $("#sold5").on("click", function () {
+        $("#twoFields5").css("display", "none");
+    });
+
+    $("#notForSale6").on("click", function () {
+        $("#twoFields6").css("display", "none");
+    });
+
+    $("#forSale6").on("click", function () {
+        $("#twoFields6").css("display", "initial");
+    });
+
+    $("#sold6").on("click", function () {
+        $("#twoFields6").css("display", "none");
+    });
+
+    $("#notForSale7").on("click", function () {
+        $("#twoFields7").css("display", "none");
+    });
+
+    $("#forSale7").on("click", function () {
+        $("#twoFields7").css("display", "initial");
+    });
+
+    $("#sold7").on("click", function () {
+        $("#twoFields7").css("display", "none");
+    });
+});
 //var db = require("../scripts-backend/db");
 //var api = require('./api');
+/*
 var back = $("#pro-logsite");
 
 $("#edit").click(function () {
@@ -2102,7 +2260,9 @@ $("#edit").click(function () {
         /* $window.submit(function (e) {
              e.preventDefault();
              db.updateUser(ourUser);
-         });*/
+         });
+
+
     });
     $(document).mouseup(function (e) {
         var logwind = $('.logwind');
@@ -2290,52 +2450,51 @@ var loginwindow = $("#pro-logsite");
 var api = require("./api"); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $("#login").click(function () {
-  //   if (!localStorage.getItem('user')) {   UNCOMMENT WHEN YOU`RE READY
-  var logsite = document.createElement("div");
-  logsite.id = "logsite";
-  var logwind = document.createElement("form");
-  logwind.id = "logwind";
-  logwind.className = "logwind";
-  logwind.innerHTML =
-    '<div style = "padding: 5% 5% 2%; border-bottom: 1px grey dotted" >' +
-    '<p style = "color: black; font-size:17px"> <b> Авторизація </b> </p>' +
-    "</div>" +
-    '<div style=" padding: 5% ">' +
-    "  <span>Email</span>" +
-    '<input type="text" id="input1">  </div>' +
-    '   <div style=" padding: 5%"> <span>Пароль</span>' +
-    '      <input type="password" id="input2">  </div>' +
-    '<div id="wrong-password">Неправильний логін або пароль!</div>' +
-    '<div style="padding: 5%; border-top: 1px grey dotted; display: flex">' +
-    '<a href="/registration" style="color: black; margin-right: .6em;">Ще не зареєстровані?</a>' +
-    '<button class="submit" id="login-submit">Увійти</button>' +
-    "</div >";
+  if (!localStorage.getItem('user')) { //  UNCOMMENT WHEN YOU`RE READY
+    var logsite = document.createElement("div");
+    logsite.id = "logsite";
+    var logwind = document.createElement("form");
+    logwind.id = "logwind";
+    logwind.className = "logwind";
+    logwind.innerHTML =
+      '<div style = "padding: 5% 5% 2%; border-bottom: 1px grey dotted" >' +
+      '<p style = "color: black; font-size:17px"> <b> Авторизація </b> </p>' +
+      "</div>" +
+      '<div style=" padding: 5% ">' +
+      "  <span>Email</span>" +
+      '<input type="text" id="input1">  </div>' +
+      '   <div style=" padding: 5%"> <span>Пароль</span>' +
+      '      <input type="password" id="input2">  </div>' +
+      '<div id="wrong-password">Неправильний логін або пароль!</div>' +
+      '<div style="padding: 5%; border-top: 1px grey dotted; display: flex">' +
+      '<a href="/registration" style="color: black; margin-right: .6em;">Ще не зареєстровані?</a>' +
+      '<button class="submit" id="login-submit">Увійти</button>' +
+      "</div >";
 
-  logsite.append(logwind);
-  loginwindow.append(logsite);
+    logsite.append(logwind);
+    loginwindow.append(logsite);
 
-  $("#login-submit").click(function (e) {
-    e.preventDefault();
-    api.loginUser($("#input1").val(), $("#input2").val(), function (error, data) {
-      if (error) {
-        console.log("--login failed: " + error);
-        $("#wrong-password").css("display", "block");
-      } else {
-        localStorage.setItem('kate', JSON.stringify(data));
-        alert("успішний вхід");
-        console.log("--success");
-        $("#login").val = "Вийти";
-        window.location.href = "/profile";
-        // open profile page for the user
-      }
+    $("#login-submit").click(function (e) {
+      e.preventDefault();
+      api.loginUser($("#input1").val(), $("#input2").val(), function (error, data) {
+        if (error) {
+          console.log("--login failed: " + error);
+          $("#wrong-password").css("display", "block");
+        } else {
+          localStorage.setItem('kate', JSON.stringify(data));
+          alert("успішний вхід");
+          console.log("--success");
+          $("#login").attr('value', "Вийти");
+          window.location.href = "/profile";
+        }
+      });
     });
-  });
 
-  /*   } else {      UNCOMMENT WHEN YOU`RE READY
-        localStorage.removeItem('user');
-        $('#login').val = "Увійти";
-        window.location.href = "/";
-    }*/
+  } else { //  UNCOMMENT WHEN YOU`RE READY
+    localStorage.removeItem('user');
+    $("#login").attr('value', "Увійти");
+    window.location.href = "/";
+  }
 });
 $(document).mouseup(function (e) {
   var logwind = $(".logwind");
@@ -2369,24 +2528,6 @@ function ifUser() {
             user: [JSON.parse(localStorage.getItem('user'))]
         });
         $('#usercontent').html(text);
-        /*
-                $('#usercontent').html('<div id="profile-head"> <span id = "profile-foto" > </span> ' +
-                    '<span id = "profile-name" > Profile name </span>' +
-                    '<div id = "profile-country" > Profile country </div> </div>' +
-                    '<div id = "profile-body" >' +
-                    '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
-                    '<div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 " >' +
-                    '<img src = "../images/contour.png" width = "70%" > <br>' +
-                    '<button id = "edit" > Редагувати </button> </div> </div>' +
-                    '<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 " >' +
-                    'Дані профіля' +
-                    '<div style = "border: 2px solid black" >' +
-                    '<ul>' +
-                    '<li id = "gender" style = "text-align: left" > Стать: kek </li>' +
-                    '<li id = "age" style = "text-align: left" > Вік: -10 </li>' +
-                    '<li id = "bloodtype" style = "text-align: left" > Група крові: 5 </li>' +
-                    '<li id = "resus" style = "text-align: left" > Резус - фактор: /</li>' +
-                    '</ul> </div> </div> </div>');*/
     } else {
         $('#2').css('display', 'none');
         $('#usercontent').html('<div style="font-size: 16px; margin: 16px">' +

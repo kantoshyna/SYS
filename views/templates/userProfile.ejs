@@ -12,14 +12,229 @@ if (user.resus) {resus = "+";} else {resus = "-";}
 </div>
 
 <div id="profile-body">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-        <!--  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-            <img src="../images/contour.png" width="70%">
-            <br>
-            <button id="edit">Редагувати</button>
-        </div>-->
-        <% include templates/organs.ejs %>
+
+    <div class="col-*-12 ">
+        <div id="body"><img src="../images/contour.png" width="100%"></div>
+        <br>
+        <button id="edit">Редагувати</button>
     </div>
+    <% if (user.stomach > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/stomach1.png";
+    image.style.position = 'absolute';
+    image.style.top = '270px';
+    image.style.left = '291px';
+    $('#body').append(image);
+    }
+    if (user.stomach == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/stomach2.png";
+    image.style.position = 'absolute';
+    image.style.top = '270px';
+    image.style.left = '291px';
+    $('#body').append(image);
+    }
+    if (user.brain > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/brain1.png";
+    image.style.position = 'absolute';
+    image.style.top = '261px';
+    image.style.left = '56px';
+    $('#body').append(image);
+    }
+    if (user.brain == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/brain2.png";
+    image.style.position = 'absolute';
+    image.style.top = '261px';
+    image.style.left = '56px';
+    $('#body').append(image);
+    }
+    if (user.leftkidney > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/leftKidney1.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 309px';
+    image.style.left = '332px';
+    $('#body').append(image);
+    }
+    if (user.leftkidney == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/leftKidney2.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 309px';
+    image.style.left = '332px';
+    $('#body').append(image);
+    }
+    if (user.leftlung > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/leftLung1.png";
+    image.style.position = 'absolute';
+    image.style.top = '300px';
+    image.style.left = '180px';
+    $('#body').append(image);
+    }
+    if (user.leftlung == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/leftLung2.png";
+    image.style.position = 'absolute';
+    image.style.top = '300px';
+    image.style.left = '180px';
+    $('#body').append(image);
+    }
+    if (user.liver > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/liver1.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 236px';
+    image.style.left = '288px';
+    $('#body').append(image);
+    }
+    if (user.liver == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/liver2.png";
+    image.style.position = 'absolute';
+    image.style.top = '236px';
+    image.style.left = '288px';
+    $('#body').append(image);
+    }
+    if (user.rightkidney > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/rightKidney1.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 237px';
+    image.style.left = '331px';
+    $('#body').append(image);
+    }
+    if (user.rightkidney == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/rightKidney2.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 237px';
+    image.style.left = '331px';
+    $('#body').append(image);
+    }
+    if (user.rightlung > 0) {
+    var image = document.createElement('img');
+    image.src = "../images/rightLung1.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 247px';
+    image.style.left = '178px';
+    $('#body').append(image);
+    }
+    if (user.rightlung == 0) {
+    var image = document.createElement('img');
+    image.src = "../images/rightLung2.png";
+    image.style.position = 'absolute';
+    image.style.top = ' 247px';
+    image.style.left = '178px';
+    $('#body').append(image);
+    } %>
+
+    <form id="editform">
+        <p style="background-color:#30a2f0; color:white; text-align: center; padding-top: 5px; padding-bottom: 5px">
+            <b>Редагування</b></p>
+        <p><input name="organ" type="radio" value="organ1" id="organ1"> Мозок</p>
+        <div id="organRed1" style="display: none;">
+            <p style="padding-left: 20px"><input name="organ1" type="radio" value="notForSale" id="notForSale1"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ1" type="radio" value="forSale" id="forSale1">
+                Продається</p>
+            <div id="twoFields1" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ1" type="radio" value="sold" id="sold1"> Продано</p>
+        </div>
+        <hr>
+        <p><input name="organ" type="radio" value="organ2" id="organ2"> Ліва легеня</p>
+        <div id="organRed2" style="display: none">
+            <p style="padding-left: 20px"><input name="organ2" type="radio" value="notForSale" id="notForSale2"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ2" type="radio" value="forSale" id="forSale2">
+                Продається</p>
+            <div id="twoFields2" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ2" type="radio" value="sold" id="sold2"> Продано</p>
+        </div>
+        <hr>
+        <p><input name="organ" type="radio" value="organ3" id="organ3"> Права легеня</p>
+        <div id="organRed3" style="display: none">
+            <p style="padding-left: 20px"><input name="organ3" type="radio" value="notForSale" id="notForSale3"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ3" type="radio" value="forSale" id="forSale3">
+                Продається</p>
+            <div id="twoFields3" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ3" type="radio" value="sold" id="sold3"> Продано</p>
+        </div>
+        <hr>
+        <p><input name="organ" type="radio" value="organ4" id="organ4"> Печінка</p>
+        <div id="organRed4" style="display: none">
+            <p style="padding-left: 20px"><input name="organ4" type="radio" value="notForSale" id="notForSale4"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ4" type="radio" value="forSale" id="forSale4">
+                Продається</p>
+            <div id="twoFields4" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ4" type="radio" value="sold" id="sold4"> Продано</p>
+        </div>
+        <hr>
+        <p><input name="organ" type="radio" value="organ5" id="organ5"> Ліва нирка</p>
+        <div id="organRed5" style="display: none">
+            <p style="padding-left: 20px"><input name="organ5" type="radio" value="notForSale" id="notForSale5"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ5" type="radio" value="forSale" id="forSale5">
+                Продається</p>
+            <div id="twoFields5" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ5" type="radio" value="sold" id="sold5"> Продано</p>
+        </div>
+        <hr>
+        <p><input name="organ" type="radio" value="organ6" id="organ6"> Права нирка</p>
+        <div id="organRed6" style="display: none">
+            <p style="padding-left: 20px"><input name="organ6" type="radio" value="notForSale" id="notForSale6"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ6" type="radio" value="forSale" id="forSale6">
+                Продається</p>
+            <div id="twoFields6" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ6" type="radio" value="sold" id="sold6"> Продано</p>
+        </div>
+        <hr>
+        <p><input name="organ" type="radio" value="organ7" id="organ7"> Шлунок</p>
+        <div id="organRed7" style="display: none">
+            <p style="padding-left: 20px"><input name="organ7" type="radio" value="notForSale" id="notForSale7"> Не
+                продається
+            </p>
+            <p style="padding-left: 20px"><input name="organ7" type="radio" value="forSale" id="forSale7">
+                Продається</p>
+            <div id="twoFields7" style="display: none; padding-left: 30px">
+                <p>Введіть ціну</p>
+                <p style="margin-left: 5px"><input></p>
+            </div>
+            <p style="padding-left: 20px"><input name="organ7" type="radio" value="sold" id="sold7"> Продано</p>
+        </div>
+        <hr>
+        <p><input type="submit" value="Зберегти"></p>
+    </form>
+
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         Дані профіля
         <div style="border: 2px solid black">

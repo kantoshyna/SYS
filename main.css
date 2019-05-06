@@ -29,6 +29,11 @@
   margin: auto;
 }
 
+#editform {
+  width: 400px;
+  display: none;
+}
+
 #fotowind {
   box-shadow: 0 2px 4px 0 rgb(34, 36, 38), 0 2px 10px 0 rgba(37, 34, 38, 0.97);
   z-index: 2;
@@ -116,9 +121,6 @@
   width: 98%;
   margin: 1%;
   border: 2px #30a2f0 solid;
-  text-align: center;
-  font-size: 25px;
-  padding-top: 12px;
 }
 
 #profile-head {
@@ -301,6 +303,12 @@
 input {
   float: right;
 }
+
+input[type='radio'] {
+  float: left;
+  margin: 3px 6px 0;
+}
+
 
 #reg-form * input,
 #reg-form select {
