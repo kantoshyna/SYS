@@ -39,11 +39,13 @@ exports.createProfile = function (req, res) {
             console.log('--register error: ' + error);
             res.status(400).send(error);
         } else {
-            res.send(data);
             console.log("--user saved");
+            res.send(data);
         }
     });
 };
+
+//========================== OFFERS ===============================
 
 exports.offersBrain = function (req, res) {
     db.getBrainUsers(function (error, arr) {

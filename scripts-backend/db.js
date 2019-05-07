@@ -68,7 +68,7 @@ function saveUser(newUser, cb) {
     } else {
         var user1 = new User(newUser);
         user1.save(cb);
-        cb(user1);
+        cb(null, user1);
     }
 }
 

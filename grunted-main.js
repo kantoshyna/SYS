@@ -2046,7 +2046,7 @@ $('#reg-form').on('submit', function (event) {
 
 function backendPost(url, data, callback) {
     $.ajax({
-        url: "http://localhost:9080" + url,
+        url: "http://sell-yourself.antoshyn.kiev.ua" + url,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
