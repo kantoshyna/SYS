@@ -1,50 +1,51 @@
-<%
-var sex, country, resus;
-if (user.sex) { sex = "Чоловік";} else { sex = "Жінка";}
-if (user.profile-country == "Не вибрано") {country = "";} else {country = user.profile-country;}
-if (user.resus) {resus = "+";} else {resus = "-";}
-%>
-
+<script src="../../scripts-frontend/statuses.js"></script>
 <div id="profile-head">
-    <span id="profile-foto"><img src="<%=user.icon %>"></span>
-    <span id="profile-name"><%=user.nickname %></span>
-    <div id="profile-country"><%=country %></div>
+    <span id="profile-foto"><img id="icon"></span>
+    <span id="profile-name"></span>
+    <div id="profile-country"></div>
+</div>
+<div style="height: auto; border: 2px solid black">
+    <ul style="font-size: 2rem">
+        <li id="sex">Стать:</li>
+        <li id="bloodgroop">Група крові:</li>
+        <li id="resus">Резус-фактор:</li>
+    </ul>
 </div>
 <div class="col-*-12" style="margin-bottom: 10rem">
     <h2><b>Статус органів:</b></h2>
     <h4>Мозок:<p style="display: none" id="statusOrgan11">Продано</p>
         <p style="display: none" id="statusOrgan12">Не продається</p>
-        <p style="display: none" id="statusOrgan13">"Ціна"</p>
+        <p style="display: none" id="statusOrgan13"><%=user.brain%></p>
     </h4>
     <hr>
-    <h4>Ліва легеня:<p style="display: none" id="statusOrgan21">Продано</p>
+    <h4>Ліва нирка:<p style="display: none" id="statusOrgan21">Продано</p>
         <p style="display: none" id="statusOrgan22">Не продається</p>
-        <p style="display: none" id="statusOrgan23">"Ціна"</p>
+        <p style="display: none" id="statusOrgan23"><%=user.leftkidney%></p>
     </h4>
     <hr>
-    <h4>Права легеня:<p style="display: none" id="statusOrgan31">Продано</p>
+    <h4>Права нирка:<p style="display: none" id="statusOrgan31">Продано</p>
         <p style="display: none" id="statusOrgan32">Не продається</p>
-        <p style="display: none" id="statusOrgan33">"Ціна"</p>
+        <p style="display: none" id="statusOrgan33"><%=user.rightkidney%></p>
     </h4>
     <hr>
-    <h4>Печінка:<p style="display: none" id="statusOrgan41">Продано</p>
+    <h4>Ліва легеня:<p style="display: none" id="statusOrgan41">Продано</p>
         <p style="display: none" id="statusOrgan42">Не продається</p>
-        <p style="display: none" id="statusOrgan43">"Ціна"</p>
+        <p style="display: none" id="statusOrgan43"><%=user.leftlung%></p>
     </h4>
     <hr>
-    <h4>Ліва нирка:<p style="display: none" id="statusOrgan51">Продано</p>
+    <h4>Права легеня:<p style="display: none" id="statusOrgan51">Продано</p>
         <p style="display: none" id="statusOrgan52">Не продається</p>
-        <p style="display: none" id="statusOrgan53">"Ціна"</p>
+        <p style="display: none" id="statusOrgan53"><%=user.rightlung%></p>
     </h4>
     <hr>
-    <h4>Права нирка:<p style="display: none" id="statusOrgan61">Продано</p>
+    <h4>Шлунок:<p style="display: none" id="statusOrgan61">Продано</p>
         <p style="display: none" id="statusOrgan62">Не продається</p>
-        <p style="display: none" id="statusOrgan63">"Ціна"</p>
+        <p style="display: none" id="statusOrgan63"><%=user.stomach%></p>
     </h4>
     <hr>
-    <h4>Шлунок:<p style="display: none" id="statusOrgan71">Продано</p>
+    <h4>Печінка:<p style="display: none" id="statusOrgan71">Продано</p>
         <p style="display: none" id="statusOrgan72">Не продається</p>
-        <p style="display: none" id="statusOrgan73">"Ціна"</p>
+        <p style="display: none" id="statusOrgan73"><%=user.liver%></p>
     </h4>
     <br>
     <button id="edit">Редагувати</button>

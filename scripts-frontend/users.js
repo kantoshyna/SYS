@@ -11,6 +11,7 @@ function showUserList(list) {
     });
     var $node = $(html_code);
     $User_list.append($node);
+    console.log(User);
   }
 
   list.forEach(showOneUser);

@@ -1,6 +1,3 @@
-var db = require('./db');
-
-
 exports.mainPage = function (req, res) {
     res.render('main', {
         pageTitle: 'Головна'

@@ -37,14 +37,9 @@ exports.createProfile = function (req, res) {
     db.saveUser(register_info, function (error, data) {
         if (error) {
             console.log('--register error: ' + error);
-            res.send({
-                success: false,
-                error: [error]
-            });
+            res.status(400).send(error);
         } else {
-            res.send({
-                success: true
-            });
+            res.send(data);
             console.log("--user saved");
         }
     });

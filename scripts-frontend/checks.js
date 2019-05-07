@@ -67,13 +67,13 @@ $('#reg-form').on('submit', function (event) {
             rightkidney: 0,
             leftlung: 0,
             rightlung: 0,
-            stomach: 10,
+            stomach: 0,
             liver: 0
         };
 
         backendPost('/api/registration', newUser, function (error, data) {
             if (error) {
-                console.log("--Database error" + error);
+                console.log("--Database error: " + error);
             } else {
                 console.log("--Database success");
                 localStorage.setItem('user', JSON.stringify(data));

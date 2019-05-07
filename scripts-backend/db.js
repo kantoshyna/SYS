@@ -64,11 +64,12 @@ function hasUser(email) {
 function saveUser(newUser, cb) {
     var newEmail = newUser.email;
     if (hasUser(newEmail)) {
-        alert("Користувач із таким email уже зареєстрований.");
         cb(new Error("--such user exists in db.js.saveUser"));
+    } else {
+        var user1 = new User(newUser);
+        user1.save(cb);
+        cb(user1);
     }
-    var user1 = new User(newUser);
-    user1.save(cb);
 }
 
 exports.saveUser = saveUser;
